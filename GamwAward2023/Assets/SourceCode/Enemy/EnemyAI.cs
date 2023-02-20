@@ -24,8 +24,8 @@ public class EnemyAI : MonoBehaviour
     void FixedUpdate()
     {
         m_Vel          = new Vector3(1, 0, 0);
-        Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, m_Vel);
-        transform.rotation = toRotation;
+        //Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, m_Vel);
+        //transform.rotation = toRotation;
         rb2D.MovePosition(transform.position + m_Vel * Time.fixedDeltaTime);
 
     }

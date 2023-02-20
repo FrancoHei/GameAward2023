@@ -56,10 +56,14 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\SourceCode\Player\PlayerController.cs" />
+    <Compile Include="Assets\SourceCode\Enemy\EnemyAI.cs" />
     <Compile Include="Assets\SourceCode\Camera\followCamera.cs" />
     <Compile Include="Assets\SourceCode\BackGround\BackGround.cs" />
-    <Compile Include="Assets\SourceCode\Enemy\EnemyAI.cs" />
+    <Compile Include="Assets\SourceCode\Player\PlayerController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Spine\version.txt" />
+    <None Include="Assets\Resources\parts.atlas.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -850,6 +854,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="spine-unity.csproj">
+      <Project>{E56F41D1-2D22-BA2B-50D9-2335587B42BF}</Project>
+      <Name>spine-unity</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity-examples.csproj">
+      <Project>{6325B6F1-4159-4F02-F168-5198010C855E}</Project>
+      <Name>spine-unity-examples</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-csharp.csproj">
+      <Project>{EAE3065A-C763-DB78-4520-C02398E73DB7}</Project>
+      <Name>spine-csharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity-examples-editor.csproj">
+      <Project>{31972126-0B3C-AD56-92BA-99838F6B19C7}</Project>
+      <Name>spine-unity-examples-editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity-editor.csproj">
+      <Project>{29E5E3E9-A12C-7B9F-3391-9FDC4954F9AE}</Project>
+      <Name>spine-unity-editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
