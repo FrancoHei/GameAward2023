@@ -22,7 +22,8 @@ public class Goal : MonoBehaviour
         {
             if (!GameObject.Find("GameSystem").GetComponent<GameSystem>().GameClear)
             {
-                GameObject.Find("GameSystem").GetComponent<GameSystem>().GameClear = true;
+                if(collision.gameObject.GetComponent<PlayerController>().Target)
+                    GameObject.Find("GameSystem").GetComponent<GameSystem>().GameClear = true;
             }
         }
     }

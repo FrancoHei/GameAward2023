@@ -72,8 +72,16 @@ public class PlayerController : MonoBehaviour
 
 
     public float    m_WallJumpSnowMotion;
+    public Vector2  m_WallJumpSnowMotionRange;
 
     private GameObject m_Target = null;
+
+    public GameObject Target 
+    {
+        set { m_Target = value; }
+        get { return m_Target; }
+    }
+
     void Start()
     {
         m_Rb2D = GetComponent<Rigidbody2D>();
@@ -109,6 +117,7 @@ public class PlayerController : MonoBehaviour
         SetRotate();
 
         HandleDelayUpdate();
+        Debug.Log(m_Rb2D.velocity);
     }
 
 
@@ -245,6 +254,8 @@ public class PlayerController : MonoBehaviour
 
     private bool CheckCanDoubleJump()
     {
+        if (m_Rb2D.velocity.y > 0) return false;
+
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, m_DoubleJumpDistance, m_DoubleJumpHitLayer);
 
         if (hit && hit.transform.gameObject.tag == "Ground")
@@ -301,19 +312,19 @@ public class PlayerController : MonoBehaviour
     {
         if (!m_OnFloor && !m_WallJump) 
         {
-            if(CheckCanWallJump() != 0) 
+            if(CheckCanWallJump() != 0 && m_Rb2D.velocity.y <= m_WallJumpSnowMotionRange.y && m_Rb2D.velocity.y >= m_WallJumpSnowMotionRange.x) 
             {
                 Time.timeScale = m_WallJumpSnowMotion;
                 return;
             }
         }
-        
-        //if(!m_OnFloor && m_Target && CheckCanDoubleJump() && !m_DoubleJump) 
+
+        //if (!m_OnFloor && m_Target && CheckCanDoubleJump() && !m_DoubleJump)
         //{
         //    Time.timeScale = 0.1f;
         //    return;
         //}
-        
+
         Time.timeScale = 1.0f;
     }
 
