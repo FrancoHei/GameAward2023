@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     //プレイヤー空時インプット
     private Vector3 m_OnAirMoveMentInput;
 
-
+    private Vector3 m_FirstJumpVel;
 
     //地面チェックしてるか？
     private bool m_OnFloor;
@@ -128,7 +128,9 @@ public class PlayerController : MonoBehaviour
         {
             //ジャンプ処理
             HandleJump();
-        } else
+            return;
+        }
+        else
         {
             //壁ジャンプ処理
             if (CheckCanWallJump() != 0 && !m_WallJump)
@@ -136,6 +138,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Perform Wall Jump");
                 HandleWallJump();
                 m_WallJump = true;
+                return;
             }
 
             if (!m_DoubleJump && CheckCanDoubleJump())
@@ -143,6 +146,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Perform Double Jump");
                 HandleDoubleJump();
                 m_DoubleJump = true;
+                return;
             }
         }
     }
@@ -154,17 +158,23 @@ public class PlayerController : MonoBehaviour
         GetComponents<CapsuleCollider2D>()[0].enabled = false;
         GetComponents<CapsuleCollider2D>()[1].enabled = true;
 
-        m_Slide = true;
+        m_Slide    = true;
         m_SlideVel = new Vector3(transform.forward.z, 0.0f, 0.0f);
     }
 
     private void HandleJump()
     {
         m_Rb2D.AddForce(Vector3.up * m_JumpPower);
+        m_FirstJumpVel = new Vector3(m_Rb2D.velocity.x, 0.0f, 0.0f);
     }
 
     private void HandleWallJump()
     {
+        if (m_DoubleJump)
+        {
+            InitDoubleJump();
+        }
+
         m_Rb2D.velocity = Vector2.zero;
 
         m_Rb2D.AddForce(Vector3.up * m_WallJumpPower);
@@ -174,9 +184,9 @@ public class PlayerController : MonoBehaviour
 
     private void HandleDoubleJump()
     {
-        m_DoubleJumpVel.x = transform.forward.z;
+        m_DoubleJumpVel.x = m_FirstJumpVel.x;
 
-        m_Rb2D.velocity = Vector2.zero;
+        m_Rb2D.velocity   = Vector2.zero;
 
         m_Rb2D.AddForce(Vector3.up * m_DoubleJumpPower);
     }
@@ -193,14 +203,12 @@ public class PlayerController : MonoBehaviour
                 //壁ジャンプ初期化
                 if (m_WallJump)
                 {
-                    m_WallJumpVel = Vector3.zero;
-                    m_WallJump = false;
+                    InitWallJump();
                 }
 
                 if (m_DoubleJump)
                 {
-                    m_DoubleJumpVel = Vector3.zero;
-                    m_DoubleJump = false;
+                    InitDoubleJump();
                 }
 
                 m_Rb2D.velocity = new Vector2((m_MoveMentInput.x + m_WallJumpVel.x + m_OnAirMoveMentInput.x) * m_Speed, m_Rb2D.velocity.y);
@@ -254,13 +262,13 @@ public class PlayerController : MonoBehaviour
         if (m_Rb2D.velocity.x > 0)
         {
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward);
-            transform.rotation = toRotation;
+            transform.rotation    = toRotation;
         }
 
         if (m_Rb2D.velocity.x < 0)
         {
             Quaternion toRotation = Quaternion.LookRotation(-Vector3.forward);
-            transform.rotation = toRotation;
+            transform.rotation    = toRotation;
         }
     }
 
@@ -271,9 +279,9 @@ public class PlayerController : MonoBehaviour
             m_SlideTimer++;
             if (m_SlideTimer > m_MaxSlideTimer)
             {
-                m_SlideVel = Vector3.zero;
+                m_SlideVel   = Vector3.zero;
                 m_SlideTimer = 0;
-                m_Slide = false;
+                m_Slide      = false;
                 GetComponents<CapsuleCollider2D>()[0].enabled = true;
                 GetComponents<CapsuleCollider2D>()[1].enabled = false;
             }
@@ -300,7 +308,24 @@ public class PlayerController : MonoBehaviour
             }
         }
         
+        //if(!m_OnFloor && m_Target && CheckCanDoubleJump() && !m_DoubleJump) 
+        //{
+        //    Time.timeScale = 0.1f;
+        //    return;
+        //}
         
         Time.timeScale = 1.0f;
+    }
+
+    private void InitDoubleJump() 
+    {
+        m_DoubleJumpVel = Vector3.zero;
+        m_DoubleJump    = false;
+    }
+
+    private void InitWallJump() 
+    {
+      m_WallJumpVel = Vector3.zero;
+      m_WallJump    = false;
     }
 }
