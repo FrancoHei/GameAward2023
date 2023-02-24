@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             //壁ジャンプ処理
-            if (CheckCanWallJump() != 0 && !m_WallJump)
+            if (CheckCanWallJump() != 0)
             {
                 Debug.Log("Perform Wall Jump");
                 HandleWallJump();
@@ -252,6 +252,18 @@ public class PlayerController : MonoBehaviour
         return 0;
     }
 
+    private bool CheckCanWallJumpSnowMotion()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(transform.forward.z, 0.0f), m_WallJumpDistance, m_WallJumpHitLayer);
+
+        if (hit && hit.transform.gameObject.tag == "Wall")
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     private bool CheckCanDoubleJump()
     {
         if (m_Rb2D.velocity.y > 0) return false;
@@ -310,12 +322,15 @@ public class PlayerController : MonoBehaviour
 
     private void HandleDelayUpdate() 
     {
-        if (!m_OnFloor && !m_WallJump) 
+        if (!m_OnFloor) 
         {
             if(CheckCanWallJump() != 0 && m_Rb2D.velocity.y <= m_WallJumpSnowMotionRange.y && m_Rb2D.velocity.y >= m_WallJumpSnowMotionRange.x) 
             {
-                Time.timeScale = m_WallJumpSnowMotion;
-                return;
+                if (CheckCanWallJumpSnowMotion()) 
+                {
+                    Time.timeScale = m_WallJumpSnowMotion;
+                    return;
+                }
             }
         }
 
