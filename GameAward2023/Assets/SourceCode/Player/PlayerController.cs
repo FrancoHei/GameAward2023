@@ -7,8 +7,13 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D m_Rb2D;
 
-    //プレイヤー動くスピード
-    public float m_Speed;
+    public bool m_ChangeDirectionJump;
+    public bool m_ChangeDirectionWallJump;
+
+    //プレイヤー地面動くスピード
+    public float m_OnFloorSpeed;
+    //プレイヤー空中動くスピード
+    public float m_OnAirSpeed;
     //ジャンプパワー(ジャンプ高さ)
     public float m_JumpPower;
 
@@ -63,7 +68,7 @@ public class PlayerController : MonoBehaviour
     //-----------------------------------
     //スライド
     //-----------------------------------
-    private bool m_Slide;
+    private bool    m_Slide;
     //スライド与える速度
     private Vector3 m_SlideVel;
     public float    m_SlideSpeed;
@@ -102,10 +107,16 @@ public class PlayerController : MonoBehaviour
         CheckOnFloor();
 
         //地面時速度計算
-        if (m_OnFloor)
-            m_Rb2D.velocity = new Vector2(m_MoveMentInput.x * m_Speed, m_Rb2D.velocity.y);
+        if (!m_ChangeDirectionJump) 
+        {
+            if(m_OnFloor)
+                m_Rb2D.velocity = new Vector2(m_MoveMentInput.x * m_OnFloorSpeed, m_Rb2D.velocity.y);
+        }else 
+        {
+            m_Rb2D.velocity = new Vector2(m_MoveMentInput.x * m_OnFloorSpeed + m_OnAirMoveMentInput.x * m_OnAirSpeed, m_Rb2D.velocity.y);
+        }
         //壁ジャンプ時速度計算
-        if (m_WallJumpVel != Vector3.zero)
+       if (m_WallJumpVel != Vector3.zero && !m_ChangeDirectionWallJump)
             m_Rb2D.velocity = new Vector2(m_WallJumpVel.x * m_WallJumpSpeed, m_Rb2D.velocity.y);
         if (m_SlideVel != Vector3.zero)
             m_Rb2D.velocity = new Vector2(m_SlideVel.x * m_SlideSpeed, m_Rb2D.velocity.y);
@@ -117,17 +128,30 @@ public class PlayerController : MonoBehaviour
         SetRotate();
 
         HandleDelayUpdate();
-        Debug.Log(m_Rb2D.velocity);
     }
 
 
     public void OnMove(InputValue input)
     {
-        m_MoveMentInput = input.Get<Vector2>();
+        Vector2 value = input.Get<Vector2>();
+        //if (value.x > 0) 
+        //{
+        //    value.x = 1;
+        //}else
+        //if (value.x < 0)
+        //{
+        //    value.x = -1;
+        //}
 
         if (!m_OnFloor)
         {
-            m_OnAirMoveMentInput = m_MoveMentInput;
+            m_OnAirMoveMentInput = value;
+            m_MoveMentInput      = Vector3.zero;
+        }
+        else 
+        {
+            m_MoveMentInput      = value;
+            m_OnAirMoveMentInput = Vector3.zero;
         }
     }
 
@@ -144,7 +168,6 @@ public class PlayerController : MonoBehaviour
             //壁ジャンプ処理
             if (CheckCanWallJump() != 0)
             {
-                Debug.Log("Perform Wall Jump");
                 HandleWallJump();
                 m_WallJump = true;
                 return;
@@ -152,7 +175,6 @@ public class PlayerController : MonoBehaviour
 
             if (!m_DoubleJump && CheckCanDoubleJump())
             {
-                Debug.Log("Perform Double Jump");
                 HandleDoubleJump();
                 m_DoubleJump = true;
                 return;
@@ -186,9 +208,20 @@ public class PlayerController : MonoBehaviour
 
         m_Rb2D.velocity = Vector2.zero;
 
-        m_Rb2D.AddForce(Vector3.up * m_WallJumpPower);
 
-        m_WallJumpVel.x = CheckCanWallJump();
+        if (!m_ChangeDirectionWallJump) 
+        {
+            m_Rb2D.AddForce(Vector3.up * m_WallJumpPower);
+            m_WallJumpVel.x = CheckCanWallJump();
+        }else 
+        {
+            if(m_OnAirMoveMentInput.y < 0) 
+            {
+                m_OnAirMoveMentInput.y = 0;
+            }
+            m_Rb2D.AddForce(m_OnAirMoveMentInput * m_WallJumpPower);
+            m_WallJumpVel.x = m_OnAirMoveMentInput.x;
+        }
     }
 
     private void HandleDoubleJump()
@@ -220,7 +253,7 @@ public class PlayerController : MonoBehaviour
                     InitDoubleJump();
                 }
 
-                m_Rb2D.velocity = new Vector2((m_MoveMentInput.x + m_WallJumpVel.x + m_OnAirMoveMentInput.x) * m_Speed, m_Rb2D.velocity.y);
+                m_Rb2D.velocity = new Vector2((m_MoveMentInput.x + m_WallJumpVel.x + m_OnAirMoveMentInput.x) * m_OnFloorSpeed, m_Rb2D.velocity.y);
             }
             //地面にいる
             m_OnFloor = true;
@@ -322,17 +355,17 @@ public class PlayerController : MonoBehaviour
 
     private void HandleDelayUpdate() 
     {
-        if (!m_OnFloor) 
-        {
-            if(CheckCanWallJump() != 0 && m_Rb2D.velocity.y <= m_WallJumpSnowMotionRange.y && m_Rb2D.velocity.y >= m_WallJumpSnowMotionRange.x) 
-            {
-                if (CheckCanWallJumpSnowMotion()) 
-                {
-                    Time.timeScale = m_WallJumpSnowMotion;
-                    return;
-                }
-            }
-        }
+        //if (!m_OnFloor) 
+        //{
+        //    if(CheckCanWallJump() != 0 && m_Rb2D.velocity.y <= m_WallJumpSnowMotionRange.y && m_Rb2D.velocity.y >= m_WallJumpSnowMotionRange.x) 
+        //    {
+        //        if (CheckCanWallJumpSnowMotion()) 
+        //        {
+        //            Time.timeScale = m_WallJumpSnowMotion;
+        //            return;
+        //        }
+        //    }
+        //}
 
         //if (!m_OnFloor && m_Target && CheckCanDoubleJump() && !m_DoubleJump)
         //{
@@ -340,7 +373,7 @@ public class PlayerController : MonoBehaviour
         //    return;
         //}
 
-        Time.timeScale = 1.0f;
+        //Time.timeScale = 1.0f;
     }
 
     private void InitDoubleJump() 
