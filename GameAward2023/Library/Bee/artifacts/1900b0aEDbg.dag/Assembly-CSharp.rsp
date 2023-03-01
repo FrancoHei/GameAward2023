@@ -115,6 +115,7 @@
 -define:ENABLE_INPUT_SYSTEM
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
+-define:UNITY_POST_PROCESSING_STACK_V2
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"D:/2021.3.18f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
@@ -357,6 +358,8 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.Mathematics.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.Mathematics.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.PlasticSCM.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.Postprocessing.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.Postprocessing.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.RenderPipeline.Universal.ShaderLibrary.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.RenderPipelines.Core.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.RenderPipelines.Core.Runtime.ref.dll"
@@ -390,6 +393,11 @@
 "Assets/SourceCode/Camera/followCamera.cs"
 "Assets/SourceCode/Enemy/ControlArea.cs"
 "Assets/SourceCode/Enemy/EnemyAI.cs"
+"Assets/SourceCode/Enemy/EnemyAI2.cs"
+"Assets/SourceCode/Enemy/EnemyLight.cs"
+"Assets/SourceCode/Enemy/EnemyNet.cs"
+"Assets/SourceCode/Enemy/EnemyStartPoint.cs"
+"Assets/SourceCode/Enemy/EnemyState.cs"
 "Assets/SourceCode/GameSystem/GameSystem.cs"
 "Assets/SourceCode/Goal.cs"
 "Assets/SourceCode/Player/PlayerController.cs"

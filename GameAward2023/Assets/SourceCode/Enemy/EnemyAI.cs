@@ -5,24 +5,11 @@ using UnityEngine.Rendering.Universal;
 
 public class EnemyAI : MonoBehaviour
 {
-    public enum EnemyAiState
-    {
-        NORMAL,
-        VIGILANCE,
-        DISCOVER
-    }
-
-    private EnemyAiState m_State = EnemyAiState.NORMAL;
 
     public float m_BulletSpeed;
     public int   m_BulletShootSpace;
 
     private int  m_BulletShootTimer = 0;
-    public EnemyAiState State 
-    {
-        set { m_State = value; }
-        get { return m_State; }
-    }
 
 
     private Rigidbody2D rb2D;
@@ -42,15 +29,15 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (m_State) 
+        switch (GetComponent<EnemyState>().State) 
         {
-            case EnemyAiState.NORMAL:
+            case EnemyState.EnemyAiState.NORMAL:
                 NormalState();
                 break;
-            case EnemyAiState.VIGILANCE:
+            case EnemyState.EnemyAiState.VIGILANCE:
                 VigilanceState();
                 break;
-            case EnemyAiState.DISCOVER:
+            case EnemyState.EnemyAiState.DISCOVER:
                 Discover();
                 break;
             default:
@@ -82,23 +69,23 @@ public class EnemyAI : MonoBehaviour
         transform.Find("Light 2D").gameObject.GetComponent<Light2D>().intensity = 0;
         GetComponent<SpriteRenderer>().color = Color.red;
 
-        m_BulletShootTimer++;
-
         if(m_BulletShootTimer % m_BulletShootSpace == 0) 
         {
             GameObject obj = Instantiate(m_Bullet, transform.Find("ShootPosition").position, Quaternion.identity);
             obj.GetComponent<Bullet>().Speed     = m_BulletSpeed;
             obj.GetComponent<Bullet>().Direction = new Vector2(transform.forward.z,0.0f);
         }
+
+        m_BulletShootTimer++;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == GameObject.Find("Player"))
         {
-            if(m_State == EnemyAiState.VIGILANCE) 
+            if(GetComponent<EnemyState>().State == EnemyState.EnemyAiState.VIGILANCE) 
             {
-                m_State = EnemyAiState.DISCOVER;
+                GetComponent<EnemyState>().State = EnemyState.EnemyAiState.DISCOVER;
             }
         }
     }
