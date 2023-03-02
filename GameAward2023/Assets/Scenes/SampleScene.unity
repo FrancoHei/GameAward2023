@@ -3904,6 +3904,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1366323465}
   - component: {fileID: 1366323463}
+  - component: {fileID: 1366323475}
   - component: {fileID: 1366323467}
   - component: {fileID: 1366323468}
   - component: {fileID: 1366323469}
@@ -3912,6 +3913,7 @@ GameObject:
   - component: {fileID: 1366323471}
   - component: {fileID: 1366323470}
   - component: {fileID: 1366323474}
+  - component: {fileID: 1366323476}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3967,31 +3969,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb5a6ffcf79b5647b3a06f224b958a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ChangeDirectionJump: 1
-  m_ChangeDirectionWallJump: 1
-  m_OnFloorSpeed: 6.5
-  m_OnAirSpeed: 6.5
-  m_JumpPower: 950
-  m_OnFloorHitLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  m_OnFloorDistance: 0.03
-  m_WallJumpHitLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  m_WallJumpDistance: 1
-  m_WallJumpPower: 1200
-  m_WallJumpSpeed: 10
-  m_DoubleJumpHitLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  m_DoubleJumpDistance: 1.5
-  m_DoubleJumpPower: 400
-  m_DoubleJumpSpeed: 2.5
-  m_SlideSpeed: 20
-  m_MaxSlideTimer: 10
-  m_WallJumpSnowMotion: 0.2
-  m_WallJumpSnowMotionRange: {x: -10, y: 10}
 --- !u!114 &1366323468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4165,6 +4142,54 @@ CapsuleCollider2D:
   m_Offset: {x: 0.29187107, y: 6}
   m_Size: {x: 23.9, y: 7.72}
   m_Direction: 1
+--- !u!114 &1366323475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366323462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5a5cc808d92314ab2b8869bb675460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ChangeDirectionJump: 1
+  m_ChangeDirectionWallJump: 0
+  m_OnFloorSpeed: 6.5
+  m_OnAirSpeed: 6.5
+  m_JumpPower: 900
+  m_OnFloorHitLayer:
+    serializedVersion: 2
+    m_Bits: 72
+  m_OnFloorDistance: 0.03
+  m_WallJumpHitLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  m_WallJumpDistance: 1
+  m_WallJumpWalkDistance: 1.2
+  m_WallJumpPower: 900
+  m_WallJumpSpeed: 10
+  m_DoubleJumpHitLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  m_DoubleJumpDistance: 1.5
+  m_DoubleJumpPower: 400
+  m_DoubleJumpSpeed: 2.5
+  m_SlideSpeed: 20
+  m_MaxSlideTimer: 10
+--- !u!114 &1366323476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366323462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fdb864c541362649b1c03b6b38b4076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1431530419
 GameObject:
   m_ObjectHideFlags: 0

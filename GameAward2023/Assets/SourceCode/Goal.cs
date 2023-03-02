@@ -22,7 +22,7 @@ public class Goal : MonoBehaviour
         {
             if (!GameObject.Find("GameSystem").GetComponent<GameSystem>().GameClear)
             {
-                if(collision.gameObject.GetComponent<PlayerController>().Target)
+                if(collision.gameObject.GetComponent<PlayerState>().Target)
                     GameObject.Find("GameSystem").GetComponent<GameSystem>().GameClear = true;
             }
         }
