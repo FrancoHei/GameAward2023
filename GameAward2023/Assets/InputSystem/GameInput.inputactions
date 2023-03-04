@@ -24,18 +24,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Catch",
+                    "name": "Slide",
                     "type": "Button",
-                    "id": "eaf12347-9e34-4545-8749-8430832b715b",
+                    "id": "15b702d1-3e69-4d04-acce-2ce86215a9e7",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Slide",
+                    "name": "LeftWallJump",
                     "type": "Button",
-                    "id": "15b702d1-3e69-4d04-acce-2ce86215a9e7",
+                    "id": "acefe7b1-4af4-44f5-9281-eaa81308726c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RightWallJump",
+                    "type": "Button",
+                    "id": "2fadb048-9cbc-444f-89b4-15d23bacb500",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -145,7 +154,7 @@
                 {
                     "name": "",
                     "id": "de797f16-2a81-4f51-a9eb-bf0bc86ca06f",
-                    "path": "<XInputController>/buttonSouth",
+                    "path": "<XInputController>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -156,7 +165,7 @@
                 {
                     "name": "",
                     "id": "e1d55770-5264-4574-813f-9d602dadd24f",
-                    "path": "<Keyboard>/k",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -166,30 +175,8 @@
                 },
                 {
                     "name": "",
-                    "id": "1a5293cd-3886-460d-bc77-d9d8a02c6048",
-                    "path": "<Keyboard>/l",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Catch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a1a2b748-27fc-473b-a5f1-2491aa2961c1",
-                    "path": "<XInputController>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Catch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "280541e9-13da-4a50-a35d-bdf99a3b0e15",
-                    "path": "<Keyboard>/i",
+                    "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -200,11 +187,55 @@
                 {
                     "name": "",
                     "id": "401b4e43-7d63-4e09-9c4f-8485cf373f71",
-                    "path": "<XInputController>/buttonNorth",
+                    "path": "<XInputController>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Slide",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "50837722-35a1-4d3f-9edf-4e6c30fdd913",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftWallJump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a59d00fd-7daa-48bf-8072-e0ba6898a2f0",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftWallJump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c7daa2d1-6beb-4edb-9a12-e2b0d1b094e6",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightWallJump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c1b1ca42-dbf8-4d76-86fc-19ef66e97d52",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightWallJump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

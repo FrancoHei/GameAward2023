@@ -404,6 +404,7 @@
 "Assets/SourceCode/Goal.cs"
 "Assets/SourceCode/Player/PlayerAnimator.cs"
 "Assets/SourceCode/Player/PlayerController.cs"
+"Assets/SourceCode/Player/PlayerParticle.cs"
 "Assets/SourceCode/Player/PlayerState.cs"
 "Assets/SourceCode/SecurityCamera/LightController.cs"
 "Assets/SourceCode/UI/GameClearText.cs"

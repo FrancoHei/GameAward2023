@@ -5,12 +5,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody2D m_Rb2D;
-    private PlayerState m_PS;
+    private Rigidbody2D    m_Rb2D;
+    private PlayerState    m_PS;
+    private PlayerParticle m_PP;
+
     void Start()
     {
         m_Rb2D = GetComponent<Rigidbody2D>();
         m_PS   = GetComponent<PlayerState>();
+        m_PP   = GetComponent<PlayerParticle>();
     }
 
     // Update is called once per frame
@@ -29,7 +32,7 @@ public class PlayerController : MonoBehaviour
         CheckOnFloor();
 
         //地面時速度計算
-        if (!m_PS.m_ChangeDirectionJump && !m_PS.IsWallJump) 
+        if (!m_PS.m_ChangeDirectionJump && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump) 
         {
             //空中方向変えない
             if(m_PS.OnFloor)
@@ -44,15 +47,22 @@ public class PlayerController : MonoBehaviour
         }
        
         
-        if (m_PS.IsWallJump && !m_PS.m_ChangeDirectionWallJump) 
+        if ((m_PS.IsLeftWallJump || m_PS.IsRightWallJump) && !m_PS.m_ChangeDirectionWallJump) 
         {
             //壁ジャンプ空中方向変えない
             //壁ジャンプ速度計算
-            if(m_PS.OnAirMoveMentInput != Vector3.zero && CheckCanWallJumpWalk() == 0) 
+            if(m_PS.OnAirMoveMentInput != Vector3.zero && CheckCanWallJumpWalk()) 
             {
-                m_PS.WallJumpVel = Vector3.zero;
-                m_Rb2D.velocity  = new Vector2(m_PS.OnAirMoveMentInput.x * m_PS.m_WallJumpSpeed, m_Rb2D.velocity.y);
-            }else 
+                if (m_Rb2D.velocity.y < 0) 
+                {
+                    m_PS.WallJumpVel = Vector3.zero;
+                    m_Rb2D.velocity  = new Vector2(m_PS.OnAirMoveMentInput.x * m_PS.m_WallJumpSpeed, m_Rb2D.velocity.y);
+                }else 
+                {
+                    m_Rb2D.velocity = new Vector2(m_PS.WallJumpVel.x * m_PS.m_WallJumpSpeed, m_Rb2D.velocity.y);
+                }
+            }
+            else 
             {
                 m_Rb2D.velocity = new Vector2(m_PS.WallJumpVel.x * m_PS.m_WallJumpSpeed, m_Rb2D.velocity.y);
             }
@@ -60,12 +70,27 @@ public class PlayerController : MonoBehaviour
 
         //スライド速度計算
         if (m_PS.IsSlide)
-            m_Rb2D.velocity = new Vector2(m_PS.SlideVel.x * m_PS.m_SlideSpeed, m_Rb2D.velocity.y);
+                m_Rb2D.velocity = new Vector2(m_PS.SlideVel.x * m_PS.m_SlideSpeed, m_Rb2D.velocity.y);
 
 
         //二段ジャンプ速度計算
-        if (m_PS.IsDoubleJump)
+        if (m_PS.IsDoubleJump) 
+        {
             m_Rb2D.velocity = new Vector2(m_PS.DoubleJumpVel.x * m_PS.m_DoubleJumpSpeed, m_Rb2D.velocity.y);
+        }
+
+        if (m_PS.IsSlideJump)
+        {
+            if (m_PS.OnAirMoveMentInput != Vector3.zero)
+            {
+                m_PS.SlideJumpVel = new Vector3(Mathf.Sign(m_PS.OnAirMoveMentInput.x) * Mathf.Abs(m_PS.SlideJumpVel.x), 0.0f,0.0f);
+                m_Rb2D.velocity   = new Vector2(m_PS.SlideJumpVel.x * m_PS.m_SlideJumpSpeed, m_Rb2D.velocity.y);
+            }
+            else
+            {
+                m_Rb2D.velocity   = new Vector2(m_PS.SlideJumpVel.x * m_PS.m_SlideJumpSpeed, m_Rb2D.velocity.y);
+            }
+        }
 
         //スライド
         SlideTimer();
@@ -82,8 +107,8 @@ public class PlayerController : MonoBehaviour
         {
             m_PS.OnAirMoveMentInput = value;
             m_PS.MoveMentInput      = Vector3.zero;
-        }
-        else 
+            return;
+        }else 
         {
             m_PS.MoveMentInput      = value;
             m_PS.OnAirMoveMentInput = Vector3.zero;
@@ -94,26 +119,56 @@ public class PlayerController : MonoBehaviour
     {
         if (m_PS.OnFloor)
         {
+            if (m_PS.IsSlide) 
+            {
+                HandleSlideJump();
+                return;
+            }
+            
             //ジャンプ処理
             HandleJump();
             return;
         }
         else
         {
-            //壁ジャンプ処理
-            if (CheckCanWallJump() != 0)
+            //二段ジャンプ
+            if (!m_PS.IsDoubleJump && m_PS.IsJump && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump)
             {
-                HandleWallJump();
-                m_PS.IsWallJump = true;
+                HandleDoubleJump();
                 return;
             }
 
             //二段ジャンプ
-            if (!m_PS.IsDoubleJump && CheckCanDoubleJump())
+            if (!m_PS.IsDoubleJump && m_PS.IsSlideJump && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump)
             {
                 HandleDoubleJump();
-                m_PS.IsDoubleJump = true;
                 return;
+            }
+        }
+    }
+
+    public void OnLeftWallJump(InputValue input)
+    {
+        if (!m_PS.OnFloor)
+        {
+            if (CheckCanWallJump() == 1)
+            {
+                m_PS.IsRightWallJump = false;
+                m_PS.IsLeftWallJump  = true;
+                HandleWallJump();
+            }
+        }
+    }
+
+    public void OnRightWallJump(InputValue input)
+    {
+        if (!m_PS.OnFloor)
+        {
+            if (CheckCanWallJump() == -1)
+            {
+                m_PS.IsLeftWallJump  = false;
+                m_PS.IsRightWallJump = true;
+                HandleWallJump();
             }
         }
     }
@@ -134,16 +189,22 @@ public class PlayerController : MonoBehaviour
 
     private void HandleJump()
     {
+        Instantiate(m_PP.m_JumpVFX, transform.position, Quaternion.identity);
+
         m_Rb2D.AddForce(Vector3.up * m_PS.m_JumpPower);
+
+        m_PS.IsJump       = true;
         m_PS.FirstJumpVel = new Vector3(m_Rb2D.velocity.x, 0.0f, 0.0f);
     }
 
     private void HandleWallJump()
     {
+        Instantiate(m_PP.m_JumpVFX, transform.position, Quaternion.identity);
+
         //二段ジャンプいてるなら、初期化
-        if (m_PS.IsDoubleJump)
+        if (m_PS.IsDoubleJump || m_PS.IsSlideJump)
         {
-            InitDoubleJump();
+            InitJump();
         }
 
         m_Rb2D.velocity = Vector2.zero;
@@ -153,14 +214,32 @@ public class PlayerController : MonoBehaviour
         {
             //壁ジャンプ空中方向変えない
             m_Rb2D.AddForce(Vector3.up * m_PS.m_WallJumpPower);
-            m_PS.WallJumpVel = new Vector3(CheckCanWallJump(),0.0f,0.0f);
+            if (m_PS.IsLeftWallJump)
+            {
+                m_PS.WallJumpVel = new Vector3(1, 0.0f, 0.0f);
+            }
+            
+            if (m_PS.IsRightWallJump)
+            {
+                m_PS.WallJumpVel = new Vector3(-1.0f, 0.0f, 0.0f);
+            }
+
             m_Rb2D.velocity = new Vector2(m_PS.WallJumpVel.x * m_PS.m_WallJumpSpeed, m_Rb2D.velocity.y);
         }
         else 
         {
             //壁ジャンプ空中方向変える
             //角度計算、壁方向壁ジャンプダメ
-            Vector2 wallDirection = new Vector2(CheckCanWallJump(), 0.0f);
+            Vector2 wallDirection = Vector2.zero;
+            if (m_PS.IsLeftWallJump) 
+            {
+                wallDirection = new Vector2(1.0f, 0.0f);
+            }
+
+            if (m_PS.IsRightWallJump)
+            {
+                wallDirection = new Vector2(-1.0f, 0.0f);
+            }
 
             float angle = Vector2.Dot(wallDirection, m_PS.OnAirMoveMentInput);
 
@@ -187,11 +266,32 @@ public class PlayerController : MonoBehaviour
 
     private void HandleDoubleJump()
     {
-        m_PS.DoubleJumpVel = new Vector3(m_PS.FirstJumpVel.x, 0.0f, 0.0f);
+        Instantiate(m_PP.m_JumpVFX, transform.position, Quaternion.identity);
+
+        Vector3 vel = m_PS.FirstJumpVel;
+
+        InitJump();
+
+        m_PS.IsDoubleJump  = true;
+
+        m_PS.DoubleJumpVel = new Vector3(transform.forward.z * Mathf.Abs(vel.x),0.0f,0.0f);
 
         m_Rb2D.velocity    = Vector2.zero;
         
         m_Rb2D.AddForce(Vector3.up * m_PS.m_DoubleJumpPower);
+    }
+
+    private void HandleSlideJump() 
+    {
+        Instantiate(m_PP.m_JumpVFX, transform.position, Quaternion.identity);
+
+        m_Rb2D.AddForce(Vector3.up * m_PS.m_SlideJumpPower);
+
+        m_PS.SlideJumpVel = new Vector3(m_Rb2D.velocity.x + (m_PS.SlideTimer * Mathf.Sign(m_Rb2D.velocity.x)), 0.0f, 0.0f);
+        m_PS.FirstJumpVel = new Vector3(m_Rb2D.velocity.x * m_PS.m_SlideJumpDoubleJumpOffset, 0.0f, 0.0f);
+        m_PS.IsSlideJump  = true;
+
+        InitSlide();
     }
 
     private void CheckOnFloor()
@@ -203,28 +303,25 @@ public class PlayerController : MonoBehaviour
             //地面到着瞬間
             if (!m_PS.OnFloor)
             {
-                //壁ジャンプ初期化
-                if (m_PS.IsWallJump)
-                {
-                    InitWallJump();
-                }
-
-                if (m_PS.IsDoubleJump)
-                {
-                    InitDoubleJump();
-                }
+                //ジャンプ初期化
+                InitJump();
+                
             }
             //地面にいる
             m_PS.OnFloor = true;
         }
         else
         {
+            if (m_PS.IsSlide)
+            {
+                InitSlide();
+            }
             //空中
             m_PS.OnFloor = false;
         }
 
     }
-
+    
     private int CheckCanWallJump()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, m_PS.m_WallJumpDistance, m_PS.m_WallJumpHitLayer);
@@ -244,27 +341,28 @@ public class PlayerController : MonoBehaviour
         return 0;
     }
 
-    private int CheckCanWallJumpWalk()
+    private bool CheckCanWallJumpWalk()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, m_PS.m_WallJumpWalkDistance, m_PS.m_WallJumpHitLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.right, m_PS.m_WallJumpWalkDistance, m_PS.m_WallJumpHitLayer);
 
         if (hit && hit.transform.gameObject.tag == "Wall")
         {
-            return -1;
+            return false;
         }
 
-        hit = Physics2D.Raycast(transform.position, -Vector2.right, m_PS.m_WallJumpWalkDistance, m_PS.m_WallJumpHitLayer);
+        hit = Physics2D.Raycast(transform.position, Vector2.right, m_PS.m_WallJumpWalkDistance, m_PS.m_WallJumpHitLayer);
 
         if (hit && hit.transform.gameObject.tag == "Wall")
         {
-            return 1;
+            return false;
         }
 
-        return 0;
+        return true;
     }
-    private bool CheckCanWallJumpSnowMotion()
+
+    private bool CheckSlide() 
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(transform.forward.z, 0.0f), m_PS.m_WallJumpDistance, m_PS.m_WallJumpHitLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector3(transform.forward.z,0.0f,0.0f), 1.0f, m_PS.m_WallJumpHitLayer);
 
         if (hit && hit.transform.gameObject.tag == "Wall")
         {
@@ -272,22 +370,6 @@ public class PlayerController : MonoBehaviour
         }
 
         return false;
-    }
-
-    private bool CheckCanDoubleJump()
-    {
-        if (m_Rb2D.velocity.y > 0) return false;
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, m_PS.m_DoubleJumpDistance, m_PS.m_DoubleJumpHitLayer);
-
-        if (hit && hit.transform.gameObject.tag == "Ground")
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
 
     private void SetRotate()
@@ -307,17 +389,19 @@ public class PlayerController : MonoBehaviour
 
     private void SlideTimer()
     {
+        if (CheckSlide())
+        {
+            InitSlide();
+            return;
+        }
+
         if (m_PS.IsSlide)
         {
             m_PS.SlideTimer++;
             if (m_PS.SlideTimer > m_PS.m_MaxSlideTimer)
             {
-                m_PS.SlideVel        = Vector3.zero;
-                m_PS.SlideTimer      = 0;
-                m_PS.IsSlide         = false;
-
-                GetComponents<CapsuleCollider2D>()[0].enabled = true;
-                GetComponents<CapsuleCollider2D>()[1].enabled = false;
+                InitSlide();
+                return;
             }
         }
     }
@@ -330,39 +414,28 @@ public class PlayerController : MonoBehaviour
             m_PS.Target.GetComponent<CircleCollider2D>().isTrigger = true;
         }
     }
-
-    private void HandleDelayUpdate() 
+    private void InitJump() 
     {
-        //if (!m_OnFloor) 
-        //{
-        //    if(CheckCanWallJump() != 0 && m_Rb2D.velocity.y <= m_WallJumpSnowMotionRange.y && m_Rb2D.velocity.y >= m_WallJumpSnowMotionRange.x) 
-        //    {
-        //        if (CheckCanWallJumpSnowMotion()) 
-        //        {
-        //            Time.timeScale = m_WallJumpSnowMotion;
-        //            return;
-        //        }
-        //    }
-        //}
-
-        //if (!m_OnFloor && m_Target && CheckCanDoubleJump() && !m_DoubleJump)
-        //{
-        //    Time.timeScale = 0.1f;
-        //    return;
-        //}
-
-        //Time.timeScale = 1.0f;
-    }
-
-    private void InitDoubleJump() 
-    {
+        m_PS.IsJump          = false;
         m_PS.DoubleJumpVel   = Vector3.zero;
         m_PS.IsDoubleJump    = false;
+        m_PS.WallJumpVel     = Vector3.zero;
+        m_PS.IsLeftWallJump  = false;
+        m_PS.IsRightWallJump = false;
+        m_PS.SlideJumpVel    = Vector3.zero;
+        m_PS.FirstJumpVel    = Vector3.zero;
+        m_PS.IsSlideJump     = false;
+       // m_PS.OnAirMoveMentInput = Vector3.zero;
+       // m_PS.MoveMentInput      = Vector3.zero;
     }
 
-    private void InitWallJump() 
+    private void InitSlide() 
     {
-        m_PS.WallJumpVel = Vector3.zero;
-        m_PS.IsWallJump    = false;
+        m_PS.IsSlide = false;
+        GetComponents<CapsuleCollider2D>()[0].enabled = true;
+        GetComponents<CapsuleCollider2D>()[1].enabled = false;
+        m_PS.SlideVel   = Vector3.zero;
+        m_PS.SlideTimer = 0;
+
     }
 }

@@ -12,11 +12,35 @@ public class PlayerState : MonoBehaviour
     public float m_OnFloorSpeed;
     //プレイヤー空中動くスピード
     public float m_OnAirSpeed;
+
+    //------------------------------
+    //普通ジャンプ
+    //------------------------------
+    //------------------------------
     //ジャンプパワー(ジャンプ高さ)
     public float m_JumpPower;
 
+    private bool m_IsJump;
 
+    public bool IsJump
+    {
+        set { m_IsJump = value; }
+        get { return m_IsJump; }
+    }
+
+    private Vector3 m_FirstJumpVel;
+
+    public Vector3 FirstJumpVel
+    {
+        set { m_FirstJumpVel = value; }
+        get { return m_FirstJumpVel; }
+    }
+
+    //-----------------------------
+    //-----------------------------
+    //-----------------------------
     //プレイヤーインプット
+    //-----------------------------
     private Vector3 m_MoveMentInput;
 
     public Vector3 MoveMentInput 
@@ -34,6 +58,7 @@ public class PlayerState : MonoBehaviour
         get { return m_OnAirMoveMentInput; }
     }
 
+    //----------------------------
     //地面チェックしてるか？
     private bool m_OnFloor;
 
@@ -48,23 +73,27 @@ public class PlayerState : MonoBehaviour
     //ジャンプ判定距離
     public float m_OnFloorDistance;
 
-    private Vector3 m_FirstJumpVel;
-    
-    public  Vector3 FirstJumpVel 
-    {
-        set { m_FirstJumpVel = value; }
-        get { return m_FirstJumpVel;  }
-    }
+    //-----------------------------------
+    //-----------------------------------
     //-----------------------------------
     //壁ジャンプ
     //-----------------------------------
-    //壁ジャンプしてるか？
-    private bool m_IsWallJump;
+    //左壁ジャンプしてるか？
+    private bool m_IsLeftWallJump;
 
-    public bool IsWallJump 
+    public bool IsLeftWallJump 
     {
-        set { m_IsWallJump = value; }
-        get { return m_IsWallJump; }
+        set { m_IsLeftWallJump = value; }
+        get { return m_IsLeftWallJump; }
+    }
+
+    //右壁ジャンプしてるか？
+    private bool m_IsRightWallJump;
+
+    public bool IsRightWallJump
+    {
+        set { m_IsRightWallJump = value; }
+        get { return m_IsRightWallJump; }
     }
 
     //壁ジャンプ当たるLAYER
@@ -88,7 +117,7 @@ public class PlayerState : MonoBehaviour
 
 
     //-----------------------------------
-
+    //-----------------------------------
     //-----------------------------------
     //ダブルジャンプ
     //-----------------------------------
@@ -117,10 +146,13 @@ public class PlayerState : MonoBehaviour
         set { m_DoubleJumpVel = value; }
         get { return m_DoubleJumpVel; }
     }
+
     //-----------------------------------
-    //スライド
     //-----------------------------------
-    //スライドしてるか
+    //-----------------------------------
+    //スライディング
+    //-----------------------------------
+    //スライディングしてるか
     private bool m_Slide;
 
     public bool IsSlide
@@ -129,7 +161,7 @@ public class PlayerState : MonoBehaviour
         get { return m_Slide;  }
     }
 
-    //スライド速度
+    //スライディング速度
     private Vector3 m_SlideVel;
 
     public Vector3 SlideVel
@@ -139,7 +171,7 @@ public class PlayerState : MonoBehaviour
     }
 
 
-    //スライド与える速度
+    //スライディング与える速度
     public float  m_SlideSpeed;
     //最大スライド時間
     public int    m_MaxSlideTimer;
@@ -151,6 +183,36 @@ public class PlayerState : MonoBehaviour
         set { m_SlideTimer = value; }
         get { return m_SlideTimer; }
     }
+
+    //-----------------------------------
+    //-----------------------------------
+    //-----------------------------------
+    //スライディングジャンプ
+    //-----------------------------------
+    //スライディングジャンプしてるか
+    private bool m_SlideJump;
+
+    //スライディングジャンプパワー(ジャンプ高さ)
+    public float m_SlideJumpPower;
+    public bool IsSlideJump
+    {
+        set { m_SlideJump = value; }
+        get { return m_SlideJump; }
+    }
+
+    //スライド速度
+    private Vector3 m_SlideJumpVel;
+    public Vector3 SlideJumpVel
+    {
+        set { m_SlideJumpVel = value; }
+        get { return m_SlideJumpVel; }
+    }
+
+    //スライド与える速度
+    public float m_SlideJumpSpeed;
+
+    //スライディングジャンプから空中ジャンプ速度オフセット
+    public float m_SlideJumpDoubleJumpOffset;
 
     //使わない
     //public float m_WallJumpSnowMotion;
