@@ -2936,7 +2936,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "WASD\t  MOVE\nI\t            JUMP\nI+I                  AIRJUMP\nI+J                
+  m_text: "LeftStick\t  MOVE\nY\t            JUMP\nI+I                  AIRJUMP\nI+J                
     LEFTWALLJUMP\nI+L                 RIGHTWALLJUMP        \nK                   
     SLIDE "
   m_isRightToLeft: 0
@@ -3878,6 +3878,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpVFX: {fileID: 2799604651839959255, guid: 857615f1ad7edac428b42ccb5cfc0c11, type: 3}
+  m_SlideJumpVFX: {fileID: 8140154260515105758, guid: 368bcfa0163f50d439d1f302dc2a45c5, type: 3}
+  m_WallJumpVFX: {fileID: 8838342774784903868, guid: 5dc0170d8619b344f9f45f4f558dc51c, type: 3}
+  m_DoubleJumpVFX: {fileID: 6408029757603699686, guid: 0d573d7c74366f146ad6440e5a5e0b3c, type: 3}
 --- !u!1 &1467274258
 GameObject:
   m_ObjectHideFlags: 0

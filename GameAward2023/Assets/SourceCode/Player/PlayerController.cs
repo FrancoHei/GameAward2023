@@ -199,7 +199,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleWallJump()
     {
-        Instantiate(m_PP.m_JumpVFX, transform.position, Quaternion.identity);
+        Instantiate(m_PP.m_WallJumpVFX, transform.position, Quaternion.identity);
 
         //二段ジャンプいてるなら、初期化
         if (m_PS.IsDoubleJump || m_PS.IsSlideJump)
@@ -266,7 +266,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleDoubleJump()
     {
-        Instantiate(m_PP.m_JumpVFX, transform.position, Quaternion.identity);
+        Instantiate(m_PP.m_DoubleJumpVFX, transform.position, Quaternion.identity);
 
         Vector3 vel = m_PS.FirstJumpVel;
 
@@ -283,7 +283,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleSlideJump() 
     {
-        Instantiate(m_PP.m_JumpVFX, transform.position, Quaternion.identity);
+        Instantiate(m_PP.m_SlideJumpVFX, transform.position, Quaternion.identity);
 
         m_Rb2D.AddForce(Vector3.up * m_PS.m_SlideJumpPower);
 
