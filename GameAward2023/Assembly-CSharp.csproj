@@ -76,6 +76,7 @@
     <Compile Include="Assets\SourceCode\Bullet.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\SourceCode\BlackOutSwitch\Blackout.cs" />
+    <Compile Include="Assets\SourceCode\Player\PlayerMovement.cs" />
     <Compile Include="Assets\SourceCode\GameSystem\GameSystem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Assets\SourceCode\Camera\followCamera.cs" />
     <Compile Include="Assets\SourceCode\Enemy\EnemyStartPoint.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
+    <Compile Include="Assets\SourceCode\Player\PlayerCollisionCheck.cs" />
     <Compile Include="Assets\SourceCode\Enemy\EnemyNet.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\SourceCode\Goal.cs" />

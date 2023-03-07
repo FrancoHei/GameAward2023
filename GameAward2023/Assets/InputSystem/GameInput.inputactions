@@ -12,7 +12,7 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Jump",
@@ -236,6 +236,34 @@
                     "processors": "",
                     "groups": "",
                     "action": "RightWallJump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "GameSystem",
+            "id": "7c9c8370-5d21-4d9c-9c29-b0b8664122a1",
+            "actions": [
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "6291342f-eacc-4544-8fb4-8e1aa30fa347",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7151bdfe-6827-421b-8830-aeefdde4ff19",
+                    "path": "<XInputController>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Restart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
