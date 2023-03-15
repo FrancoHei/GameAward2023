@@ -10,6 +10,22 @@ public class PlayerController : MonoBehaviour
     private PlayerParticle m_PP;
     private PlayerMovement m_PM;
 
+    public bool m_IsNewControl;
+
+    private bool m_IsBPressed = false;
+    public  bool IsBPressed 
+    {
+        set { m_IsBPressed = value; }
+        get { return m_IsBPressed;  }
+    }
+
+    private bool m_IsXPressed = false;
+    public bool IsXPressed
+    {
+        set { m_IsXPressed = value; }
+        get { return m_IsXPressed; }
+    }
+
     void Start()
     {
         m_Rb2D = GetComponent<Rigidbody2D>();
@@ -42,67 +58,167 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputValue input)
     {
-        if (m_PS.OnFloor)
+        if (m_IsNewControl && m_PS.Target) 
         {
-            if (m_PS.IsSlide)
-            {
-                m_PM.HandleSlideJump();
-                return;
-            }
-
-            //ジャンプ処理
-            HandleJump();
+            m_PM.HandleThrowTarget();
             return;
         }
-        else
-        {
-            //二段ジャンプ
-            if (!m_PS.IsDoubleJump && m_PS.IsJump && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump)
-            {
-                m_PM.HandleDoubleJump();
-                return;
-            }
 
-            //二段ジャンプ
-            if (!m_PS.IsDoubleJump && m_PS.IsSlideJump && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump)
+        if (m_PS.OnFloor || m_PS.IsWire)
             {
-                m_PM.HandleDoubleJump();
+                if (m_PS.IsSlide)
+                {
+                    m_PM.HandleSlideJump();
+                    return;
+                }
+
+                //ジャンプ処理
+                m_PM.HandleJump();
                 return;
             }
-        }
+            else
+            {
+                if (m_IsNewControl) 
+                {
+              
+                    if ((m_PS.IsRightJump || m_PS.IsLeftJump || m_PS.IsJump) && !m_PS.IsDoubleJump)
+                    {
+                        m_PS.IsRightJump = false;
+                        m_PS.IsLeftJump = false;
+                        m_PS.IsDoubleJump = true;
+                        m_PM.HandleJump();
+                        return;
+                    }
+                }
+                //二段ジャンプ
+                if (!m_PS.IsDoubleJump && m_PS.IsJump && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump)
+                {
+                    m_PM.HandleDoubleJump();
+                    return;
+                }
+
+                //二段ジャンプ
+                if (!m_PS.IsDoubleJump && m_PS.IsSlideJump && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump)
+                {
+                    m_PM.HandleDoubleJump();
+                    return;
+                }
+            }
+       
     }
 
     public void OnLeftWallJump(InputValue input)
     {
-        if (!m_PS.OnFloor)
+        if (m_IsNewControl && m_PS.Target) return;
+
+        if (!m_IsNewControl)
         {
-            if (m_PM.CheckCanWallJump() == 1)
+            if (!m_PS.OnFloor)
             {
-                m_PS.IsRightWallJump = false;
-                m_PS.IsLeftWallJump  = true;
-                m_PM.HandleWallJump();
+                if (m_PM.CheckCanWallJump() == 1)
+                {
+                    m_PS.IsRightWallJump = false;
+                    m_PS.IsLeftWallJump = true;
+                    m_PM.HandleWallJump();
+                }
+            }
+        }else 
+        {
+            m_IsXPressed = input.isPressed;
+            if (m_PS.OnFloor)
+            {
+                if (m_IsXPressed)
+                    m_PM.HandlLeftJump();
+                return;
+            }else 
+            {
+                if (m_IsXPressed)
+                {
+                    if ((m_PS.IsRightJump || m_PS.IsLeftJump || m_PS.IsJump) && !m_PS.IsDoubleJump)
+                    {
+                       
+                        m_PS.IsRightJump = false;
+                        m_PS.IsJump = false;
+                        m_PS.IsDoubleJump = true;
+                        m_PM.HandlLeftJump();
+                        return;
+                    }
+                }
+            }
+            if ((m_PS.IsRightWallJump || m_PS .IsSlideJump) && m_PM.CheckCanWallJump() == 1)
+            {
+                if (m_IsXPressed)
+                {
+                    m_PS.IsLeftWallJump  = true;
+                    m_PS.IsRightWallJump = false;
+                    m_PM.HandleWallJump();
+                    return;
+                }
             }
         }
     }
 
     public void OnRightWallJump(InputValue input)
     {
-        if (!m_PS.OnFloor)
+        if (m_IsNewControl && m_PS.Target) return;
+
+        if (!m_IsNewControl) 
         {
-            if (m_PM.CheckCanWallJump() == -1)
+            if (!m_PS.OnFloor)
             {
-                m_PS.IsLeftWallJump  = false;
-                m_PS.IsRightWallJump = true;
-                m_PM.HandleWallJump();
+                if (m_PM.CheckCanWallJump() == -1)
+                {
+                    m_PS.IsLeftWallJump = false;
+                    m_PS.IsRightWallJump = true;
+                    m_PM.HandleWallJump();
+                }
+            }
+        }else
+        {
+            m_IsBPressed = input.isPressed;
+            if (m_PS.OnFloor) 
+            {
+                if(m_IsBPressed)
+                    m_PM.HandlRightJump();
+                return;
+            }else 
+            {
+                if (m_IsBPressed)
+                {
+                    if ((m_PS.IsRightJump || m_PS.IsLeftJump || m_PS.IsJump) && !m_PS.IsDoubleJump)
+                    {
+                        m_PS.IsLeftJump = false;
+                        m_PS.IsJump = false;
+                        m_PS.IsDoubleJump = true;
+                        m_PM.HandlRightJump();
+                        return;
+                    }
+                }
+            }
+
+
+            if((m_PS.IsLeftWallJump || m_PS.IsSlideJump) && m_PM.CheckCanWallJump() == -1) 
+            {
+                if (m_IsBPressed)
+                {
+                    m_PS.IsLeftWallJump = false;
+                    m_PS.IsRightWallJump = true;
+                    m_PM.HandleWallJump();
+                    return;
+                }
             }
         }
+    
     }
+
+
+
 
     public void OnSlide(InputValue input)
     {
         //地面いないスライド出来ない
         if (!m_PS.OnFloor) return;
-
+        if (m_IsNewControl && m_PS.Target)   return;
         //当たり判定変わる
         GetComponents<CapsuleCollider2D>()[0].enabled = false;
         GetComponents<CapsuleCollider2D>()[1].enabled = true;
@@ -112,14 +228,5 @@ public class PlayerController : MonoBehaviour
         m_PS.SlideVel = new Vector3(transform.forward.z, 0.0f, 0.0f);
     }
 
-    private void HandleJump()
-    {
-        Instantiate(m_PP.m_JumpVFX, transform.position, Quaternion.identity);
-
-        m_Rb2D.AddForce(Vector3.up * m_PS.m_JumpPower);
-
-        m_PS.IsJump = true;
-        m_PS.FirstJumpVel = new Vector3(m_Rb2D.velocity.x, 0.0f, 0.0f);
-    }
 
 }

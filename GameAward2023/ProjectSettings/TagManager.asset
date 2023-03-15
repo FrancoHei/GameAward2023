@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Wall
   - Target
+  - Wire
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - UI
   - Wall
   - Target
-  - 
+  - Wire
   - 
   - 
   - 
@@ -46,6 +47,9 @@ TagManager:
     locked: 0
   - name: BackGround
     uniqueID: 214071897
+    locked: 0
+  - name: Wire
+    uniqueID: 3141920647
     locked: 0
   - name: Character
     uniqueID: 1210842651

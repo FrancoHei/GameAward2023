@@ -409,6 +409,7 @@
 "Assets/SourceCode/Player/PlayerParticle.cs"
 "Assets/SourceCode/Player/PlayerState.cs"
 "Assets/SourceCode/SecurityCamera/LightController.cs"
+"Assets/SourceCode/UI/DebugText.cs"
 "Assets/SourceCode/UI/GameClearText.cs"
 "Assets/SourceCode/UI/GameoOverText.cs"
 "Assets/SourceCode/UI/TimerText.cs"

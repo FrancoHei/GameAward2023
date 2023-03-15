@@ -4085,6 +4085,7 @@ m_ResolvedPackages:
     - 9.0.1
     - 10.0.0-pre.1
     - 10.0.0-pre.2
+    - 10.0.0
     compatible:
     - 7.0.9
     verified: 7.0.9
@@ -4311,6 +4312,7 @@ m_ResolvedPackages:
     - 8.0.2
     - 9.0.0-pre.1
     - 9.0.0-pre.2
+    - 9.0.0
     compatible:
     - 6.0.7
     verified: 6.0.7
@@ -4520,6 +4522,7 @@ m_ResolvedPackages:
     - 9.0.1
     - 10.0.0-pre.1
     - 10.0.0-pre.2
+    - 10.0.0
     compatible:
     - 7.0.6
     verified: 7.0.6
@@ -4694,6 +4697,7 @@ m_ResolvedPackages:
     - 3.0.3
     - 4.0.0-pre.1
     - 4.0.0-pre.2
+    - 4.0.0-pre.3
     compatible:
     - 2.2.4
     verified: 2.2.4
@@ -4879,6 +4883,7 @@ m_ResolvedPackages:
     - 8.0.1
     - 9.0.0-pre.1
     - 9.0.0-pre.2
+    - 9.0.0
     compatible:
     - 6.0.6
     verified: 6.0.6

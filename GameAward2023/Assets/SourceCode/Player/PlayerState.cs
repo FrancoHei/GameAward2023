@@ -12,6 +12,7 @@ public class PlayerState : MonoBehaviour
     public float m_OnFloorSpeed;
     //プレイヤー空中動くスピード
     public float m_OnAirSpeed;
+    public float m_OnJumpAirSpeed;
 
     //------------------------------
     //普通ジャンプ
@@ -19,7 +20,8 @@ public class PlayerState : MonoBehaviour
     //------------------------------
     //ジャンプパワー(ジャンプ高さ)
     public float m_JumpPower;
-
+    //ジャンプパワー(ジャンプ高さ)
+    public float m_JumpSpeed;
     private bool m_IsJump;
 
     public bool IsJump
@@ -115,6 +117,42 @@ public class PlayerState : MonoBehaviour
         get { return m_WallJumpVel; }
     }
 
+
+    private bool m_IsRightJump;
+
+    public bool IsRightJump 
+    {
+        set { m_IsRightJump = value; }
+        get { return m_IsRightJump;  }
+    }
+
+    private Vector3 m_RightJumpVel;
+
+    public Vector3 RightJumpVel
+    {
+        set { m_RightJumpVel = value; }
+        get { return m_RightJumpVel; }
+    }
+
+
+
+
+
+    private bool m_IsLeftJump;
+
+    public bool IsLeftJump
+    {
+        set { m_IsLeftJump = value; }
+        get { return m_IsLeftJump; }
+    }
+
+    private Vector3 m_LeftJumpVel;
+
+    public Vector3 LeftJumpVel
+    {
+        set { m_LeftJumpVel = value; }
+        get { return m_LeftJumpVel; }
+    }
 
     //-----------------------------------
     //-----------------------------------
@@ -221,9 +259,31 @@ public class PlayerState : MonoBehaviour
     //プレーヤーがターゲット取ってるか？
     private GameObject m_Target = null;
 
+    public float m_TargetThrowPower;
     public GameObject Target
     {
         set { m_Target = value; }
         get { return m_Target; }
     }
+
+    //------------------------------------
+    //------------------------------------
+    private bool m_IsWire;
+
+    public bool IsWire 
+    {
+        set { m_IsWire = value; }
+        get { return m_IsWire;  }
+    }
+
+    private GameObject m_Wire;
+
+    public GameObject Wire 
+    {
+        set { m_Wire = value; }
+        get { return m_Wire;  }
+    }
+
+    public float m_WireSpeed;
+
 }
