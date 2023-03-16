@@ -2617,8 +2617,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700526452}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.06, y: 7.16, z: -0.47348657}
-  m_LocalScale: {x: 18.012388, y: 1, z: 1}
+  m_LocalPosition: {x: 7.06, y: 7.3929, z: -0.47348657}
+  m_LocalScale: {x: 18.012388, y: 0.5341, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1054753455}
@@ -4193,7 +4193,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: pla
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4741,7 +4741,7 @@ MonoBehaviour:
   m_ChangeDirectionJump: 1
   m_ChangeDirectionWallJump: 0
   m_OnFloorSpeed: 8
-  m_OnAirSpeed: 1
+  m_OnAirSpeed: 6.5
   m_OnJumpAirSpeed: 0.09
   m_JumpPower: 900
   m_JumpSpeed: 7
@@ -4809,9 +4809,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4278dfb26bfb3142b3f723d3eb4e7e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_WallJumpControlMethod: 0
+  m_WallJumpControlMethod: 2
   m_TargetThrowMethod: 0
-  m_CanLeftStickAffectWallJump: 0
+  m_CanLeftStickAffectWallJump: 1
 --- !u!114 &1366323479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5031,7 +5031,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.00000006935612}
@@ -5486,7 +5486,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.00000006935612}
@@ -6584,7 +6584,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755614087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.49, y: -0.6, z: 0}
+  m_LocalPosition: {x: 2.29, y: -0.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

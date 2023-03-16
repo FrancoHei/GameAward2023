@@ -80,7 +80,6 @@ public class PlayerController : MonoBehaviour
             {
                 if (m_IsNewControl) 
                 {
-              
                     if ((m_PS.IsRightJump || m_PS.IsLeftJump || m_PS.IsJump) && !m_PS.IsDoubleJump)
                     {
                         m_PS.IsRightJump = false;
@@ -124,15 +123,30 @@ public class PlayerController : MonoBehaviour
             }
         }else 
         {
-            m_IsXPressed = input.isPressed;
+            if (m_IsXPressed)
+            {
+                if (!input.isPressed)
+                {
+                    if (m_PM.CheckCanWallJump() == 1)
+                    {
+                        if (m_PM.m_WallJumpControlMethod == PlayerMovement.WallJumpControlMethod.RELEASE)
+                        {
+                            m_PS.IsLeftWallJump = true;
+                            m_PS.IsRightWallJump = false;
+                            m_PM.HandleWallJump();
+                        }
+                    }
+                }
+            }
+
+
             if (m_PS.OnFloor)
             {
-                if (m_IsXPressed)
+                if (input.isPressed)
                     m_PM.HandlLeftJump();
-                return;
             }else 
             {
-                if (m_IsXPressed)
+                if (input.isPressed)
                 {
                     if ((m_PS.IsRightJump || m_PS.IsLeftJump || m_PS.IsJump) && !m_PS.IsDoubleJump)
                     {
@@ -141,20 +155,38 @@ public class PlayerController : MonoBehaviour
                         m_PS.IsJump = false;
                         m_PS.IsDoubleJump = true;
                         m_PM.HandlLeftJump();
-                        return;
                     }
                 }
             }
+
             if ((m_PS.IsRightWallJump || m_PS .IsSlideJump) && m_PM.CheckCanWallJump() == 1)
             {
-                if (m_IsXPressed)
+                if (m_PM.m_WallJumpControlMethod == PlayerMovement.WallJumpControlMethod.AUTO || m_PM.m_WallJumpControlMethod == PlayerMovement.WallJumpControlMethod.PRESSING)
                 {
-                    m_PS.IsLeftWallJump  = true;
-                    m_PS.IsRightWallJump = false;
-                    m_PM.HandleWallJump();
-                    return;
+                    if (input.isPressed)
+                    {
+
+                        m_PS.IsLeftWallJump = true;
+                        m_PS.IsRightWallJump = false;
+                        m_PM.HandleWallJump();
+                    }
+                }else
+                if (m_PM.m_WallJumpControlMethod == PlayerMovement.WallJumpControlMethod.RELEASE)
+                {
+                    if (m_IsXPressed)
+                    {
+                        if (!input.isPressed)
+                        {
+                            m_PS.IsLeftWallJump = true;
+                            m_PS.IsRightWallJump = false;
+                            m_PM.HandleWallJump();
+                        }
+                    }
                 }
             }
+
+            m_IsXPressed = input.isPressed;
+
         }
     }
 
@@ -175,40 +207,71 @@ public class PlayerController : MonoBehaviour
             }
         }else
         {
-            m_IsBPressed = input.isPressed;
+            if (m_IsBPressed)
+            {
+                if (!input.isPressed)
+                {
+                    if (m_PM.CheckCanWallJump() == -1)
+                    {
+                        if (m_PM.m_WallJumpControlMethod == PlayerMovement.WallJumpControlMethod.RELEASE)
+                        {   
+                            m_PS.IsLeftWallJump = false;
+                            m_PS.IsRightWallJump = true;
+                            m_PM.HandleWallJump();
+                        }
+                    }
+                }
+            }
+           
             if (m_PS.OnFloor) 
             {
-                if(m_IsBPressed)
+                if(input.isPressed)
                     m_PM.HandlRightJump();
-                return;
             }else 
             {
-                if (m_IsBPressed)
+
+                if (input.isPressed)
                 {
                     if ((m_PS.IsRightJump || m_PS.IsLeftJump || m_PS.IsJump) && !m_PS.IsDoubleJump)
                     {
-                        m_PS.IsLeftJump = false;
-                        m_PS.IsJump = false;
+                        m_PS.IsLeftJump   = false;
+                        m_PS.IsJump       = false;
                         m_PS.IsDoubleJump = true;
                         m_PM.HandlRightJump();
-                        return;
                     }
                 }
             }
 
 
-            if((m_PS.IsLeftWallJump || m_PS.IsSlideJump) && m_PM.CheckCanWallJump() == -1) 
+            if ((m_PS.IsLeftWallJump || m_PS.IsSlideJump) && m_PM.CheckCanWallJump() == -1)
             {
-                if (m_IsBPressed)
+                if (m_PM.m_WallJumpControlMethod == PlayerMovement.WallJumpControlMethod.AUTO || m_PM.m_WallJumpControlMethod == PlayerMovement.WallJumpControlMethod.PRESSING)
                 {
-                    m_PS.IsLeftWallJump = false;
-                    m_PS.IsRightWallJump = true;
-                    m_PM.HandleWallJump();
-                    return;
+                    if (input.isPressed)
+                    {
+                        m_PS.IsLeftWallJump = false;
+                        m_PS.IsRightWallJump = true;
+                        m_PM.HandleWallJump();
+                    }
+                }
+                if (m_PM.m_WallJumpControlMethod == PlayerMovement.WallJumpControlMethod.RELEASE)
+                {
+                    if (m_IsBPressed)
+                    {
+                        if (!input.isPressed)
+                        {
+                            m_PS.IsLeftWallJump = false;
+                            m_PS.IsRightWallJump = true;
+                            m_PM.HandleWallJump();
+                        }
+                    }
                 }
             }
+
+            m_IsBPressed = input.isPressed;
+
         }
-    
+
     }
 
 

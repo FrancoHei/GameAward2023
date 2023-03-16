@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         CheckOnFloor();
 
         //’n–ÊŽž‘¬“xŒvŽZ
-        if (!m_PS.m_ChangeDirectionJump && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump && !m_PS.IsSlideJump && !m_PS.IsDoubleJump && !m_PS.IsRightJump && !m_PS.IsLeftJump)
+        if (!m_PS.m_ChangeDirectionJump && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump && !m_PS.IsSlideJump && !m_PS.IsRightJump && !m_PS.IsLeftJump)
         {
             //‹ó’†•ûŒü•Ï‚¦‚È‚¢
             if (m_PS.OnFloor)
@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
                                               m_Rb2D.velocity.y);
         }
         else
-        if (m_PS.m_ChangeDirectionJump && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump && !m_PS.IsSlideJump && !m_PS.IsDoubleJump && !m_PS.IsRightJump && !m_PS.IsLeftJump)
+        if (m_PS.m_ChangeDirectionJump && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump && !m_PS.IsSlideJump && !m_PS.IsRightJump && !m_PS.IsLeftJump)
         {
             //‹ó’†•ûŒü•Ï‚¦‚é
             m_Rb2D.velocity = new Vector2(m_PS.MoveMentInput.x * m_PS.m_OnFloorSpeed +
@@ -69,13 +69,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (m_PC.m_IsNewControl)
         {
-            if (m_PS.IsJump) 
-            {
-                //‹ó’†•ûŒü•Ï‚¦‚é
-                m_Rb2D.velocity = new Vector2(m_PS.OnAirMoveMentInput.x * m_PS.m_OnAirSpeed * 0.8f,
-                                              m_Rb2D.velocity.y);
-            }
-
             if (m_PS.IsRightJump)
             {
                 if (m_PS.OnAirMoveMentInput != Vector3.zero)
@@ -289,8 +282,13 @@ public class PlayerMovement : MonoBehaviour
             
             if(m_PS.OnAirMoveMentInput != Vector3.zero)
             {
+                float height = m_PS.OnAirMoveMentInput.y;
+                if(m_PS.OnAirMoveMentInput.y < 0) 
+                {
+                    height = 0;
+                }
                 m_PS.WallJumpVel = new Vector3(m_PS.WallJumpVel.x * (Mathf.Abs(m_PS.OnAirMoveMentInput.x) + 1) * 0.6f, 0.0f, 0.0f);
-                m_Rb2D.AddForce(Vector3.up * (Mathf.Abs(m_PS.OnAirMoveMentInput.y) + 1) * (m_PS.m_WallJumpPower) * 0.6f);
+                m_Rb2D.AddForce(Vector3.up * (Mathf.Abs(height) + 1) * (m_PS.m_WallJumpPower) * 0.6f);
                 return;
             }
 
@@ -429,15 +427,6 @@ public class PlayerMovement : MonoBehaviour
                         m_PS.IsRightWallJump = true;
                         HandleWallJump();
                     }
-                }else
-                if (m_WallJumpControlMethod == WallJumpControlMethod.RELEASE)
-                {
-                    if (!m_PC.IsBPressed)
-                    {
-                        m_PS.IsLeftWallJump = false;
-                        m_PS.IsRightWallJump = true;
-                        HandleWallJump();
-                    }
                 }
 
             }
@@ -459,23 +448,14 @@ public class PlayerMovement : MonoBehaviour
                 else
                 if (m_WallJumpControlMethod == WallJumpControlMethod.PRESSING)
                 {
-                    if (m_PC.IsBPressed)
+                    if (m_PC.IsXPressed)
                     {
                         m_PS.IsLeftWallJump  = true;
                         m_PS.IsRightWallJump = false;
                         HandleWallJump();
                     }
                 }
-                else
-                if (m_WallJumpControlMethod == WallJumpControlMethod.RELEASE)
-                {
-                    if (!m_PC.IsBPressed)
-                    {
-                        m_PS.IsLeftWallJump  = true;
-                        m_PS.IsRightWallJump = false;
-                        HandleWallJump();
-                    }
-                }
+               
 
             }
         }
