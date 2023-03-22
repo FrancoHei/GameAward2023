@@ -192,6 +192,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnRightWallJump(InputValue input)
     {
+
         if (m_IsNewControl && m_PS.Target) return;
 
         if (!m_IsNewControl) 
@@ -207,6 +208,7 @@ public class PlayerController : MonoBehaviour
             }
         }else
         {
+
             if (m_IsBPressed)
             {
                 if (!input.isPressed)
