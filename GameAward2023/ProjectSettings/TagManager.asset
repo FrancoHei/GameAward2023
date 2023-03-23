@@ -54,6 +54,9 @@ TagManager:
   - name: BackGround3
     uniqueID: 3705701905
     locked: 0
+  - name: Light
+    uniqueID: 3912157215
+    locked: 0
   - name: Wire
     uniqueID: 3141920647
     locked: 0
