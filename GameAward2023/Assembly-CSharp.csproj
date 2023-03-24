@@ -89,7 +89,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
-    <Compile Include="Assets\SourceCode\Camera\followCamera.cs" />
+    <Compile Include="Assets\SourceCode\Camera\FollowCamera.cs" />
     <Compile Include="Assets\SourceCode\Enemy\EnemyStartPoint.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\SourceCode\Player\PlayerCollisionCheck.cs" />

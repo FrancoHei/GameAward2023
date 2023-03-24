@@ -279,6 +279,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Camera",
+            "id": "a5ad018b-53a4-408f-85f9-d3fd689448d0",
+            "actions": [
+                {
+                    "name": "CameraMove",
+                    "type": "PassThrough",
+                    "id": "16750c49-d7d5-446f-8ead-2bf9e8ba977a",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "520b6c90-8b8d-44b7-afe4-c5fb4ec524ba",
+                    "path": "<XInputController>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

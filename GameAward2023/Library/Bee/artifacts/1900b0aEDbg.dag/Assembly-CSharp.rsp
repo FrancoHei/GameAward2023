@@ -392,7 +392,7 @@
 "Assets/SourceCode/BackGround/BackGround.cs"
 "Assets/SourceCode/BlackOutSwitch/Blackout.cs"
 "Assets/SourceCode/Bullet.cs"
-"Assets/SourceCode/Camera/followCamera.cs"
+"Assets/SourceCode/Camera/FollowCamera.cs"
 "Assets/SourceCode/Enemy/ControlArea.cs"
 "Assets/SourceCode/Enemy/EnemyAI.cs"
 "Assets/SourceCode/Enemy/EnemyAI2.cs"
