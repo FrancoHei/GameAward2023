@@ -545,9 +545,11 @@ m_ResolvedPackages:
     - 1.4.3
     - 1.4.4
     - 1.5.0
+    - 1.5.1
     compatible:
     - 1.4.4
     - 1.5.0
+    - 1.5.1
     verified: 1.4.4
   dependencies:
   - name: com.unity.modules.uielements
@@ -3919,6 +3921,7 @@ m_ResolvedPackages:
     - 1.8.1
     - 1.8.2
     - 1.8.3
+    - 1.8.4
     compatible:
     - 1.6.6
     - 1.7.0-pre.1
@@ -3933,6 +3936,7 @@ m_ResolvedPackages:
     - 1.8.1
     - 1.8.2
     - 1.8.3
+    - 1.8.4
     verified: 1.6.6
   dependencies:
   - name: com.unity.mathematics

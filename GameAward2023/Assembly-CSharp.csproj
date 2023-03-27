@@ -66,6 +66,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\SourceCode\Player\PlayerState.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
+    <Compile Include="Assets\SourceCode\Camera\ShadowCamera.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\SourceCode\Player\PlayerAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+    <Compile Include="Assets\SourceCode\MapCamera.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\SourceCode\Player\PlayerController.cs" />
     <Compile Include="Assets\SourceCode\Enemy\EnemyLight.cs" />
@@ -944,17 +946,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="spine-unity-examples.csproj">
-      <Project>{05B6A80B-ACAD-93D7-5EC3-6E4895BA3FF0}</Project>
-      <Name>spine-unity-examples</Name>
-    </ProjectReference>
     <ProjectReference Include="spine-csharp.csproj">
       <Project>{EC6D05E8-0C2E-64B0-4AED-9871474CF42E}</Project>
       <Name>spine-csharp</Name>
-    </ProjectReference>
-    <ProjectReference Include="spine-unity-examples-editor.csproj">
-      <Project>{1A4E7618-F65E-096B-0C31-9F69E6930C8C}</Project>
-      <Name>spine-unity-examples-editor</Name>
     </ProjectReference>
     <ProjectReference Include="spine-unity.csproj">
       <Project>{7C9EEBB8-A5DA-CA46-9301-5BA75CE02960}</Project>
