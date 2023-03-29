@@ -1,0 +1,663 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.18f1 (3129e69bc0c7) revision 3221990'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Core' Language: 'ja' Physical Memory: 16240 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+D:\2021.3.18f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker3
+-projectPath
+D:/Github/GameAward2023/GameAward2023
+-logFile
+Logs/AssetImportWorker3.log
+-srvPort
+63691
+Successfully changed project path to: D:/Github/GameAward2023/GameAward2023
+D:/Github/GameAward2023/GameAward2023
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [28608] Host "[IP] 192.168.1.2 [Port] 0 [Flags] 2 [Guid] 2549321820 [EditorId] 2549321820 [Version] 1048832 [Id] WindowsEditor(7,Wths05072) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [28608] Host "[IP] 192.168.1.2 [Port] 0 [Flags] 2 [Guid] 2549321820 [EditorId] 2549321820 [Version] 1048832 [Id] WindowsEditor(7,Wths05072) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 342.47 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.18f1 (3129e69bc0c7)
+[Subsystems] Discovering subsystems at path D:/2021.3.18f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Github/GameAward2023/GameAward2023/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 960M (ID=0x139b)
+    Vendor:   NVIDIA
+    VRAM:     4053 MB
+    Driver:   30.0.14.7219
+Initialize mono
+Mono path[0] = 'D:/2021.3.18f1/Editor/Data/Managed'
+Mono path[1] = 'D:/2021.3.18f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/2021.3.18f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56128
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/2021.3.18f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: D:/2021.3.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: D:/2021.3.18f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.006463 seconds.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 546.22 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Could not allocate 13312 bytes
+Crash!!!
+  ERROR: SymInitialize, GetLastError: 'このコマンドを処理するにはメモリ リソースが足りません。
+' (Address: 0000000000000000)
+  ERROR: SymGetSearchPath, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+SymInit: Symbol-SearchPath: '', symOptions: 534, UserName: 'Franco'
+OS-Version: 10.0.0
+:Unity.exe (00007FF77E660000), size: 73973760 (result: 6), SymType: '-unknown-', PDB: ''
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\ntdll.dll:ntdll.dll (00007FF9F02B0000), size: 2064384 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2130
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\KERNEL32.DLL:KERNEL32.DLL (00007FF9EEE60000), size: 782336 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\KERNELBASE.dll:KERNELBASE.dll (00007FF9EDB40000), size: 2957312 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2728
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\CRYPT32.dll:CRYPT32.dll (00007FF9ED9B0000), size: 1400832 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2486
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\ucrtbase.dll:ucrtbase.dll (00007FF9EE200000), size: 1048576 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.789
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\USER32.dll:USER32.dll (00007FF9EFF10000), size: 1708032 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2486
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\win32u.dll:win32u.dll (00007FF9EDB10000), size: 139264 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2728
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\s3tcompress.dll:s3tcompress.dll (00007FF9DBA70000), size: 180224 (result: 6), SymType: '-unknown-', PDB: ''
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\optix.6.0.0.dll:optix.6.0.0.dll (00007FF9B6CA0000), size: 208896 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 6.0.0.0
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\GDI32.dll:GDI32.dll (00007FF9EFC10000), size: 176128 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2130
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\libfbxsdk.dll:libfbxsdk.dll (00007FF93AED0000), size: 10108928 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 2020.3.2.0
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\etccompress.dll:etccompress.dll (00007FF956760000), size: 5066752 (result: 6), SymType: '-unknown-', PDB: ''
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\gdi32full.dll:gdi32full.dll (00007FF9EDF40000), size: 1110016 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2604
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\msvcp_win.dll:msvcp_win.dll (00007FF9EDE50000), size: 643072 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.789
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\ispc_texcomp.dll:ispc_texcomp.dll (00007FF960810000), size: 1740800 (result: 6), SymType: '-unknown-', PDB: ''
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\compress_bc7e.dll:compress_bc7e.dll (00007FF9606B0000), size: 1441792 (result: 6), SymType: '-unknown-', PDB: ''
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\FreeImage.dll:FreeImage.dll (0000000180000000), size: 6582272 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 3.18.0.0
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\OpenImageDenoise.dll:OpenImageDenoise.dll (00007FF932580000), size: 48848896 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 1.4.2.0
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\WS2_32.dll:WS2_32.dll (00007FF9EFE70000), size: 438272 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\ADVAPI32.dll:ADVAPI32.dll (00007FF9EED30000), size: 712704 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2130
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\WinPixEventRuntime.dll:WinPixEventRuntime.dll (00007FF9E82D0000), size: 45056 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 1.0.1812.6001
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\msvcrt.dll:msvcrt.dll (00007FF9EEC90000), size: 647168 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 7.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\RPCRT4.dll:RPCRT4.dll (00007FF9EEF40000), size: 1196032 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2728
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\sechost.dll:sechost.dll (00007FF9EFDD0000), size: 638976 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.1865
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\umbraoptimizer64.dll:umbraoptimizer64.dll (00007FF958450000), size: 1187840 (result: 6), SymType: '-unknown-', PDB: ''
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\SHELL32.dll:SHELL32.dll (00007FF9EE490000), size: 7622656 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\MSVCP140.dll:MSVCP140.dll (00007FF9D2F10000), size: 581632 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 14.34.31931.0
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\VCRUNTIME140.dll:VCRUNTIME140.dll (00007FF9DEE70000), size: 110592 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 14.34.31931.0
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\ole32.dll:ole32.dll (00007FF9EFAE0000), size: 1220608 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.1202
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\SHLWAPI.dll:SHLWAPI.dll (00007FF9EF1F0000), size: 348160 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2075
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\combase.dll:combase.dll (00007FF9EF2B0000), size: 3493888 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2311
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\IMM32.dll:IMM32.dll (00007FF9EFEE0000), size: 196608 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2673
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\SETUPAPI.dll:SETUPAPI.dll (00007FF9EF610000), size: 4620288 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2193
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\tbb12.dll:tbb12.dll (00007FF9ADBE0000), size: 434176 (result: 6), SymType: '-unknown-', PDB: ''
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\cfgmgr32.dll:cfgmgr32.dll (00007FF9EDEF0000), size: 319488 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.1620
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\bcrypt.dll:bcrypt.dll (00007FF9EDE20000), size: 159744 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2486
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\VCRUNTIME140_1.dll:VCRUNTIME140_1.dll (00007FF9D60E0000), size: 49152 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 14.34.31931.0
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\OPENGL32.dll:OPENGL32.dll (00007FF9BE380000), size: 1200128 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2193
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\GLU32.dll:GLU32.dll (00007FF9BE310000), size: 180224 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2193
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\OLEAUT32.dll:OLEAUT32.dll (00007FF9EF070000), size: 839680 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.985
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL:IPHLPAPI.DLL (00007FF9ECD80000), size: 241664 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.1865
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\tbbmalloc.dll:tbbmalloc.dll (00007FF9ADB90000), size: 282624 (result: 6), SymType: '-unknown-', PDB: ''
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\WINHTTP.dll:WINHTTP.dll (00007FF9E4810000), size: 1089536 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2673
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\WINMM.dll:WINMM.dll (00007FF9DECD0000), size: 159744 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\dwmapi.dll:dwmapi.dll (00007FF9EB2B0000), size: 192512 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.746
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\HID.DLL:HID.DLL (00007FF9EC0E0000), size: 53248 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\WINTRUST.dll:WINTRUST.dll (00007FF9EE190000), size: 430080 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\RadeonImageFilters.dll:RadeonImageFilters.dll (00007FF957140000), size: 2961408 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 1.7.0.0
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\SketchUpAPI.dll:SketchUpAPI.dll (00007FF93A5E0000), size: 9310208 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 22.1.205.0
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\VERSION.dll:VERSION.dll (00007FF9E7630000), size: 40960 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\RadeonML.dll:RadeonML.dll (00007FF9DBD40000), size: 94208 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 0.9.11.0
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\WSOCK32.dll:WSOCK32.dll (00007FF9EC0F0000), size: 36864 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.1
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\SketchUpCommonPreferences.dll:SketchUpCommonPreferences.dll (00007FF9990F0000), size: 499712 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 22.1.205.54
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\Secur32.dll:Secur32.dll (00007FF9DBA50000), size: 49152 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\SSPICLI.DLL:SSPICLI.DLL (00007FF9ED870000), size: 204800 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2130
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\OpenRL.dll:OpenRL.dll (000001D55B350000), size: 12779520 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 1.5.0.2907
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\MSVCR100.dll:MSVCR100.dll (00000000777A0000), size: 856064 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.30319.415
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\MSVCP100.dll:MSVCP100.dll (0000000077880000), size: 622592 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.30319.415
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\embree.dll:embree.dll (00007FF9395F0000), size: 16711680 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 2.14.0.0
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\tbb.dll:tbb.dll (00007FF9ADAA0000), size: 413696 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 2017.0.2016.1004
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\MSVCP120.dll:MSVCP120.dll (00007FF9E88A0000), size: 679936 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 12.0.40649.5
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\MSVCR120.dll:MSVCR120.dll (00007FF9E9070000), size: 978944 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 12.0.40649.5
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\MSWSOCK.DLL:MSWSOCK.DLL (00007FF9ED090000), size: 434176 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\OpenRL_pthread.dll:OpenRL_pthread.dll (000001D55BFA0000), size: 61440 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 2.9.0.0
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\MSASN1.dll:MSASN1.dll (00007FF9ED530000), size: 73728 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2251
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\kernel.appcore.dll:kernel.appcore.dll (00007FF9EC250000), size: 73728 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\bcryptPrimitives.dll:bcryptPrimitives.dll (00007FF9EE100000), size: 532480 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2486
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\system32\uxtheme.dll:uxtheme.dll (00007FF9EAFC0000), size: 647168 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2193
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\shcore.dll:shcore.dll (00007FF9EEBE0000), size: 708608 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.1865
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\windows.storage.dll:windows.storage.dll (00007FF9EB920000), size: 7938048 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2673
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\Wldp.dll:Wldp.dll (00007FF9ED330000), size: 196608 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2673
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\profapi.dll:profapi.dll (00007FF9ED8F0000), size: 126976 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.844
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\system32\IconCodecService.dll:IconCodecService.dll (00007FF9BA3F0000), size: 36864 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.1
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\WindowsCodecs.dll:WindowsCodecs.dll (00007FF9E5950000), size: 1785856 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.1706
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\clbcatq.dll:clbcatq.dll (00007FF9EE300000), size: 692224 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 2001.12.10941.16384
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\netprofm.dll:netprofm.dll (00007FF9E86F0000), size: 253952 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2311
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\npmproxy.dll:npmproxy.dll (00007FF9E2C10000), size: 65536 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2311
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\NSI.dll:NSI.dll (00007FF9EF1E0000), size: 32768 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.610
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\dhcpcsvc6.DLL:dhcpcsvc6.DLL (00007FF9E5740000), size: 94208 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2673
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\dhcpcsvc.DLL:dhcpcsvc.DLL (00007FF9E5700000), size: 118784 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2673
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\DNSAPI.dll:DNSAPI.dll (00007FF9ECDC0000), size: 831488 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\system32\napinsp.dll:napinsp.dll (00007FF9D4F90000), size: 94208 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\system32\pnrpnsp.dll:pnrpnsp.dll (00007FF9D3950000), size: 110592 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\system32\wshbth.dll:wshbth.dll (00007FF9D0790000), size: 86016 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\system32\NLAapi.dll:NLAapi.dll (00007FF9E8D00000), size: 118784 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2193
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\winrnr.dll:winrnr.dll (00007FF9D01C0000), size: 73728 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\fwpuclnt.dll:fwpuclnt.dll (00007FF9E0F40000), size: 524288 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2486
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\Windows\System32\rasadhlp.dll:rasadhlp.dll (00007FF9E2940000), size: 40960 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\NVUnityPlugin.DLL:NVUnityPlugin.DLL (00007FF957DD0000), size: 1536000 (result: 6), SymType: '-unknown-', PDB: ''
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\Data\Tools\astcenc-avx2.dll:astcenc-avx2.dll (00007FF95C1C0000), size: 561152 (result: 6), SymType: '-unknown-', PDB: ''
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\d3d11.dll:d3d11.dll (00007FF9E92C0000), size: 2502656 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2075
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\dxgi.dll:dxgi.dll (00007FF9EC270000), size: 995328 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2311
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\DriverStore\FileRepository\nvhm.inf_amd64_ae10454e1ce27bd8\nvldumdx.dll:nvldumdx.dll (00007FF99B7B0000), size: 1073152 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 30.0.14.7219
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\cryptnet.dll:cryptnet.dll (00007FF9E50F0000), size: 200704 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.906
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\drvstore.dll:drvstore.dll (00007FF9E5470000), size: 1343488 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\devobj.dll:devobj.dll (00007FF9ED6F0000), size: 180224 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.1620
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\cryptbase.dll:cryptbase.dll (00007FF9ED280000), size: 49152 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\imagehlp.dll:imagehlp.dll (00007FF9EEF20000), size: 118784 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.1415
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\CRYPTSP.dll:CRYPTSP.dll (00007FF9ED290000), size: 98304 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\system32\rsaenh.dll:rsaenh.dll (00007FF9EC9B0000), size: 212992 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.1052
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\DriverStore\FileRepository\nvhm.inf_amd64_ae10454e1ce27bd8\nvwgf2umx.dll:nvwgf2umx.dll (00007FF983510000), size: 77623296 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 30.0.14.7219
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\system32\nvspcap64.dll:nvspcap64.dll (00007FF95E420000), size: 2809856 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 3.20.4.14
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\ntmarta.dll:ntmarta.dll (00007FF9ECAF0000), size: 208896 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\dxcore.dll:dxcore.dll (00007FF9E3ED0000), size: 241664 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\system32\wbem\wbemprox.dll:wbemprox.dll (00007FF9DE830000), size: 69632 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.1320
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\wbemcomn.dll:wbemcomn.dll (00007FF9DE7A0000), size: 589824 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.1566
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\system32\wbem\wbemsvc.dll:wbemsvc.dll (00007FF9DCE70000), size: 81920 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.1320
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\system32\wbem\fastprox.dll:fastprox.dll (00007FF9DCFE0000), size: 1093632 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\amsi.dll:amsi.dll (00007FF9DC640000), size: 126976 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2075
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\USERENV.dll:USERENV.dll (00007FF9ED8B0000), size: 188416 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.572
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2302.7-0\MpOav.dll:MpOav.dll (00007FF9DC560000), size: 503808 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 4.18.2302.7
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\cudart64_90.dll:cudart64_90.dll (00007FF9C8DB0000), size: 397312 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 6.14.11.9000
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\opencl.dll:opencl.dll (00007FF9B1A70000), size: 1482752 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 3.0.1.0
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\radeonrays.dll:radeonrays.dll (00007FF9B19E0000), size: 557056 (result: 6), SymType: '-unknown-', PDB: ''
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+D:\2021.3.18f1\Editor\Data\MonoBleedingEdge\EmbedRuntime\mono-2.0-bdwgc.dll:mono-2.0-bdwgc.dll (00007FF9371F0000), size: 10686464 (result: 6), SymType: '-unknown-', PDB: ''
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\SYSTEM32\dbghelp.dll:dbghelp.dll (00007FF9EB730000), size: 1982464 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.867
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+C:\WINDOWS\System32\psapi.dll:psapi.dll (00007FF9EFCA0000), size: 32768 (result: 6), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.546
+  ERROR: LoadModule, GetLastError: 'ハンドルが無効です。
+' (Address: 0000000000000000)
+
+========== OUTPUTTING STACK TRACE ==================
+
+SymInit: Symbol-SearchPath: 'D:/2021.3.18f1/Editor/Data/Mono;.;D:\Github\GameAward2023\GameAward2023;D:\Github\GameAward2023\GameAward2023\Library\BurstCache\JIT;D:\2021.3.18f1\Editor;C:\WINDOWS;C:\WINDOWS\system32;', symOptions: 534, UserName: 'Franco'
+OS-Version: 10.0.0
+D:\2021.3.18f1\Editor\Unity.exe:Unity.exe (00007FF77E660000), size: 73973760 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 2021.3.18.10726
+C:\WINDOWS\SYSTEM32\ntdll.dll:ntdll.dll (00007FF9F02B0000), size: 2064384 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2130
+C:\WINDOWS\System32\KERNEL32.DLL:KERNEL32.DLL (00007FF9EEE60000), size: 782336 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2546
+C:\WINDOWS\System32\KERNELBASE.dll:KERNELBASE.dll (00007FF9EDB40000), size: 2957312 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2728
+C:\WINDOWS\System32\CRYPT32.dll:CRYPT32.dll (00007FF9ED9B0000), size: 1400832 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2486
+C:\WINDOWS\System32\ucrtbase.dll:ucrtbase.dll (00007FF9EE200000), size: 1048576 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.789
+C:\WINDOWS\System32\USER32.dll:USER32.dll (00007FF9EFF10000), size: 1708032 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2486
+C:\WINDOWS\System32\win32u.dll:win32u.dll (00007FF9EDB10000), size: 139264 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2728
+D:\2021.3.18f1\Editor\s3tcompress.dll:s3tcompress.dll (00007FF9DBA70000), size: 180224 (result: 0), SymType: '-deferred-', PDB: ''
+D:\2021.3.18f1\Editor\optix.6.0.0.dll:optix.6.0.0.dll (00007FF9B6CA0000), size: 208896 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 6.0.0.0
+C:\WINDOWS\System32\GDI32.dll:GDI32.dll (00007FF9EFC10000), size: 176128 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2130
+D:\2021.3.18f1\Editor\libfbxsdk.dll:libfbxsdk.dll (00007FF93AED0000), size: 10108928 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 2020.3.2.0
+D:\2021.3.18f1\Editor\etccompress.dll:etccompress.dll (00007FF956760000), size: 5066752 (result: 0), SymType: '-deferred-', PDB: ''
+C:\WINDOWS\System32\gdi32full.dll:gdi32full.dll (00007FF9EDF40000), size: 1110016 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2604
+C:\WINDOWS\System32\msvcp_win.dll:msvcp_win.dll (00007FF9EDE50000), size: 643072 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.789
+D:\2021.3.18f1\Editor\ispc_texcomp.dll:ispc_texcomp.dll (00007FF960810000), size: 1740800 (result: 0), SymType: '-deferred-', PDB: ''
+D:\2021.3.18f1\Editor\compress_bc7e.dll:compress_bc7e.dll (00007FF9606B0000), size: 1441792 (result: 0), SymType: '-deferred-', PDB: ''
+D:\2021.3.18f1\Editor\FreeImage.dll:FreeImage.dll (0000000180000000), size: 6582272 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 3.18.0.0
+D:\2021.3.18f1\Editor\OpenImageDenoise.dll:OpenImageDenoise.dll (00007FF932580000), size: 48848896 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 1.4.2.0
+C:\WINDOWS\System32\WS2_32.dll:WS2_32.dll (00007FF9EFE70000), size: 438272 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.546
+C:\WINDOWS\System32\ADVAPI32.dll:ADVAPI32.dll (00007FF9EED30000), size: 712704 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2130
+D:\2021.3.18f1\Editor\WinPixEventRuntime.dll:WinPixEventRuntime.dll (00007FF9E82D0000), size: 45056 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 1.0.1812.6001
+C:\WINDOWS\System32\msvcrt.dll:msvcrt.dll (00007FF9EEC90000), size: 647168 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 7.0.19041.546
+C:\WINDOWS\System32\RPCRT4.dll:RPCRT4.dll (00007FF9EEF40000), size: 1196032 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2728
+C:\WINDOWS\System32\sechost.dll:sechost.dll (00007FF9EFDD0000), size: 638976 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.1865
+D:\2021.3.18f1\Editor\umbraoptimizer64.dll:umbraoptimizer64.dll (00007FF958450000), size: 1187840 (result: 0), SymType: '-deferred-', PDB: ''
+C:\WINDOWS\System32\SHELL32.dll:SHELL32.dll (00007FF9EE490000), size: 7622656 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2546
+C:\WINDOWS\SYSTEM32\MSVCP140.dll:MSVCP140.dll (00007FF9D2F10000), size: 581632 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 14.34.31931.0
+C:\WINDOWS\SYSTEM32\VCRUNTIME140.dll:VCRUNTIME140.dll (00007FF9DEE70000), size: 110592 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 14.34.31931.0
+C:\WINDOWS\System32\ole32.dll:ole32.dll (00007FF9EFAE0000), size: 1220608 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.1202
+C:\WINDOWS\System32\SHLWAPI.dll:SHLWAPI.dll (00007FF9EF1F0000), size: 348160 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2075
+C:\WINDOWS\System32\combase.dll:combase.dll (00007FF9EF2B0000), size: 3493888 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2311
+C:\WINDOWS\System32\IMM32.dll:IMM32.dll (00007FF9EFEE0000), size: 196608 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2673
+C:\WINDOWS\System32\SETUPAPI.dll:SETUPAPI.dll (00007FF9EF610000), size: 4620288 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2193
+D:\2021.3.18f1\Editor\tbb12.dll:tbb12.dll (00007FF9ADBE0000), size: 434176 (result: 0), SymType: '-deferred-', PDB: ''
+C:\WINDOWS\System32\cfgmgr32.dll:cfgmgr32.dll (00007FF9EDEF0000), size: 319488 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.1620
+C:\WINDOWS\System32\bcrypt.dll:bcrypt.dll (00007FF9EDE20000), size: 159744 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2486
+C:\WINDOWS\SYSTEM32\VCRUNTIME140_1.dll:VCRUNTIME140_1.dll (00007FF9D60E0000), size: 49152 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 14.34.31931.0
+C:\WINDOWS\SYSTEM32\OPENGL32.dll:OPENGL32.dll (00007FF9BE380000), size: 1200128 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2193
+C:\WINDOWS\SYSTEM32\GLU32.dll:GLU32.dll (00007FF9BE310000), size: 180224 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2193
+C:\WINDOWS\System32\OLEAUT32.dll:OLEAUT32.dll (00007FF9EF070000), size: 839680 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.985
+C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL:IPHLPAPI.DLL (00007FF9ECD80000), size: 241664 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.1865
+D:\2021.3.18f1\Editor\tbbmalloc.dll:tbbmalloc.dll (00007FF9ADB90000), size: 282624 (result: 0), SymType: '-deferred-', PDB: ''
+C:\WINDOWS\SYSTEM32\WINHTTP.dll:WINHTTP.dll (00007FF9E4810000), size: 1089536 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2673
+C:\WINDOWS\SYSTEM32\WINMM.dll:WINMM.dll (00007FF9DECD0000), size: 159744 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.546
+C:\WINDOWS\SYSTEM32\dwmapi.dll:dwmapi.dll (00007FF9EB2B0000), size: 192512 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.746
+C:\WINDOWS\SYSTEM32\HID.DLL:HID.DLL (00007FF9EC0E0000), size: 53248 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.546
+C:\WINDOWS\System32\WINTRUST.dll:WINTRUST.dll (00007FF9EE190000), size: 430080 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2546
+D:\2021.3.18f1\Editor\RadeonImageFilters.dll:RadeonImageFilters.dll (00007FF957140000), size: 2961408 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 1.7.0.0
+D:\2021.3.18f1\Editor\SketchUpAPI.dll:SketchUpAPI.dll (00007FF93A5E0000), size: 9310208 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 22.1.205.0
+C:\WINDOWS\SYSTEM32\VERSION.dll:VERSION.dll (00007FF9E7630000), size: 40960 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.546
+D:\2021.3.18f1\Editor\RadeonML.dll:RadeonML.dll (00007FF9DBD40000), size: 94208 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 0.9.11.0
+C:\WINDOWS\SYSTEM32\WSOCK32.dll:WSOCK32.dll (00007FF9EC0F0000), size: 36864 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.1
+D:\2021.3.18f1\Editor\SketchUpCommonPreferences.dll:SketchUpCommonPreferences.dll (00007FF9990F0000), size: 499712 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 22.1.205.54
+C:\WINDOWS\SYSTEM32\Secur32.dll:Secur32.dll (00007FF9DBA50000), size: 49152 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.546
+C:\WINDOWS\SYSTEM32\SSPICLI.DLL:SSPICLI.DLL (00007FF9ED870000), size: 204800 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2130
+D:\2021.3.18f1\Editor\OpenRL.dll:OpenRL.dll (000001D55B350000), size: 12779520 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 1.5.0.2907
+C:\WINDOWS\SYSTEM32\MSVCR100.dll:MSVCR100.dll (00000000777A0000), size: 856064 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.30319.415
+C:\WINDOWS\SYSTEM32\MSVCP100.dll:MSVCP100.dll (0000000077880000), size: 622592 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.30319.415
+D:\2021.3.18f1\Editor\embree.dll:embree.dll (00007FF9395F0000), size: 16711680 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 2.14.0.0
+D:\2021.3.18f1\Editor\tbb.dll:tbb.dll (00007FF9ADAA0000), size: 413696 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 2017.0.2016.1004
+C:\WINDOWS\SYSTEM32\MSVCP120.dll:MSVCP120.dll (00007FF9E88A0000), size: 679936 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 12.0.40649.5
+C:\WINDOWS\SYSTEM32\MSVCR120.dll:MSVCR120.dll (00007FF9E9070000), size: 978944 (result: 8), SymType: '-unknown-', PDB: '', fileVersion: 12.0.40649.5
+C:\WINDOWS\SYSTEM32\MSWSOCK.DLL:MSWSOCK.DLL (00007FF9ED090000), size: 434176 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.546
+D:\2021.3.18f1\Editor\OpenRL_pthread.dll:OpenRL_pthread.dll (000001D55BFA0000), size: 61440 (result: 8), SymType: '-unknown-', PDB: '', fileVersion: 2.9.0.0
+C:\WINDOWS\SYSTEM32\MSASN1.dll:MSASN1.dll (00007FF9ED530000), size: 73728 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2251
+C:\WINDOWS\SYSTEM32\kernel.appcore.dll:kernel.appcore.dll (00007FF9EC250000), size: 73728 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.546
+C:\WINDOWS\System32\bcryptPrimitives.dll:bcryptPrimitives.dll (00007FF9EE100000), size: 532480 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2486
+C:\WINDOWS\system32\uxtheme.dll:uxtheme.dll (00007FF9EAFC0000), size: 647168 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.2193
+C:\WINDOWS\System32\shcore.dll:shcore.dll (00007FF9EEBE0000), size: 708608 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.1865
+C:\WINDOWS\SYSTEM32\windows.storage.dll:windows.storage.dll (00007FF9EB920000), size: 7938048 (result: 8), SymType: '-unknown-', PDB: '', fileVersion: 10.0.19041.2673
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF9EDB6CD29)
+0x00007FF9EDB6CD29 (KERNELBASE) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF93726064C)
+  ERROR: SymGetModuleInfo64, GetLastError: 'ダイナミック リンク ライブラリ (DLL) 初期化ルーチンの実行に失敗しました。
+' (Address: 00007FF93726064C)
+0x00007FF93726064C ((<unknown>)) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF93724C4A2)
+  ERROR: SymGetModuleInfo64, GetLastError: 'ダイナミック リンク ライブラリ (DLL) 初期化ルーチンの実行に失敗しました。
+' (Address: 00007FF93724C4A2)
+0x00007FF93724C4A2 ((<unknown>)) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF93724C508)
+  ERROR: SymGetModuleInfo64, GetLastError: 'ダイナミック リンク ライブラリ (DLL) 初期化ルーチンの実行に失敗しました。
+' (Address: 00007FF93724C508)
+0x00007FF93724C508 ((<unknown>)) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF937247570)
+  ERROR: SymGetModuleInfo64, GetLastError: 'ダイナミック リンク ライブラリ (DLL) 初期化ルーチンの実行に失敗しました。
+' (Address: 00007FF937247570)
+0x00007FF937247570 ((<unknown>)) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF93751413F)
+  ERROR: SymGetModuleInfo64, GetLastError: 'ダイナミック リンク ライブラリ (DLL) 初期化ルーチンの実行に失敗しました。
+' (Address: 00007FF93751413F)
+0x00007FF93751413F ((<unknown>)) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF93760A58A)
+  ERROR: SymGetModuleInfo64, GetLastError: 'ダイナミック リンク ライブラリ (DLL) 初期化ルーチンの実行に失敗しました。
+' (Address: 00007FF93760A58A)
+0x00007FF93760A58A ((<unknown>)) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF93746256D)
+  ERROR: SymGetModuleInfo64, GetLastError: 'ダイナミック リンク ライブラリ (DLL) 初期化ルーチンの実行に失敗しました。
+' (Address: 00007FF93746256D)
+0x00007FF93746256D ((<unknown>)) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF9374666AA)
+  ERROR: SymGetModuleInfo64, GetLastError: 'ダイナミック リンク ライブラリ (DLL) 初期化ルーチンの実行に失敗しました。
+' (Address: 00007FF9374666AA)
+0x00007FF9374666AA ((<unknown>)) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF937467127)
+  ERROR: SymGetModuleInfo64, GetLastError: 'ダイナミック リンク ライブラリ (DLL) 初期化ルーチンの実行に失敗しました。
+' (Address: 00007FF937467127)
+0x00007FF937467127 ((<unknown>)) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF93746DDDC)
+  ERROR: SymGetModuleInfo64, GetLastError: 'ダイナミック リンク ライブラリ (DLL) 初期化ルーチンの実行に失敗しました。
+' (Address: 00007FF93746DDDC)
+0x00007FF93746DDDC ((<unknown>)) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF937560D2F)
+  ERROR: SymGetModuleInfo64, GetLastError: 'ダイナミック リンク ライブラリ (DLL) 初期化ルーチンの実行に失敗しました。
+' (Address: 00007FF937560D2F)
+0x00007FF937560D2F ((<unknown>)) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF937561CA8)
+  ERROR: SymGetModuleInfo64, GetLastError: 'ダイナミック リンク ライブラリ (DLL) 初期化ルーチンの実行に失敗しました。
+' (Address: 00007FF937561CA8)
+0x00007FF937561CA8 ((<unknown>)) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 000001D747291596)
+  ERROR: SymGetModuleInfo64, GetLastError: 'ダイナミック リンク ライブラリ (DLL) 初期化ルーチンの実行に失敗しました。
+' (Address: 000001D747291596)
+0x000001D747291596 ((<unknown>)) (function-name not available)
+0x000001D74B04DC2A (Mono JIT Code) string:CreateStringFromEncoding (byte*,int,System.Text.Encoding)
+0x000001D74B04D9EB (Mono JIT Code) System.Text.Encoding:GetString (byte*,int)
+0x000001D74B04D453 (Mono JIT Code) System.Globalization.CultureData:idx2string (byte*,int)
+0x000001D74B04C5AB (Mono JIT Code) System.Globalization.CultureData:GetNFIValues (System.Globalization.NumberFormatInfo)
+0x000001D7473368A3 (Mono JIT Code) System.Globalization.NumberFormatInfo:.ctor (System.Globalization.CultureData)
+0x000001D74B04C1DB (Mono JIT Code) System.Globalization.CultureInfo:get_NumberFormat ()
+0x000001D7497532E1 (Mono JIT Code) System.Globalization.CultureInfo:GetFormat (System.Type)
+0x000001D74B04C057 (Mono JIT Code) System.Globalization.NumberFormatInfo:get_CurrentInfo ()
+0x000001D74B04BE13 (Mono JIT Code) System.Globalization.NumberFormatInfo:GetInstance (System.IFormatProvider)
+0x000001D74B04A83B (Mono JIT Code) System.Number:TryFormatInt32 (int,System.ReadOnlySpan`1<char>,System.IFormatProvider,System.Span`1<char>,int&)
+0x000001D74B04A493 (Mono JIT Code) int:TryFormat (System.Span`1<char>,int&,System.ReadOnlySpan`1<char>,System.IFormatProvider)
+0x000001D74975299C (Mono JIT Code) System.Text.StringBuilder:AppendFormatHelper (System.IFormatProvider,string,System.ParamsArray)
+0x000001D74B049D2B (Mono JIT Code) System.Text.StringBuilder:AppendFormat (string,object)
+0x000001D74B042A5B (Mono JIT Code) System.Diagnostics.StackTrace:AddFrames (System.Text.StringBuilder,bool,bool&)
+0x000001D74B042093 (Mono JIT Code) System.Diagnostics.StackTrace:ToString ()
+0x000001D74B041C2E (Mono JIT Code) System.Diagnostics.StackTrace:ToString (System.Diagnostics.StackTrace/TraceFormat)
+0x000001D74B0415BB (Mono JIT Code) System.Environment:GetStackTrace (System.Exception,bool)
+0x000001D74B041323 (Mono JIT Code) System.Exception:GetStackTrace (bool)
+0x000001D74B0409AB (Mono JIT Code) System.Exception:ToString (bool,bool)
+0x000001D74B0407CB (Mono JIT Code) System.Exception:ToString (bool,bool)
+0x000001D74B04040B (Mono JIT Code) System.Exception:ToString ()
+0x000001D74B0402C9 (Mono JIT Code) UnityEngine.Logger:GetString (object)
+0x000001D74B03F963 (Mono JIT Code) UnityEngine.Logger:Log (UnityEngine.LogType,object)
+0x000001D74B03F64A (Mono JIT Code) UnityEngine.Debug:LogError (object)
+0x000001D74B039A23 (Mono JIT Code) UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+0x000001D749A81CCB (Mono JIT Code) (wrapper runtime-invoke) <Module>:runtime_invoke_void_object (object,intptr,intptr,intptr)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF93746FEB4)
+  ERROR: SymGetModuleInfo64, GetLastError: 'ダイナミック リンク ライブラリ (DLL) 初期化ルーチンの実行に失敗しました。
+' (Address: 00007FF93746FEB4)
+0x00007FF93746FEB4 ((<unknown>)) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF9373AE764)
+  ERROR: SymGetModuleInfo64, GetLastError: 'ダイナミック リンク ライブラリ (DLL) 初期化ルーチンの実行に失敗しました。
+' (Address: 00007FF9373AE764)
+0x00007FF9373AE764 ((<unknown>)) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF9373AE8FC)
+  ERROR: SymGetModuleInfo64, GetLastError: 'ダイナミック リンク ライブラリ (DLL) 初期化ルーチンの実行に失敗しました。
+' (Address: 00007FF9373AE8FC)
+0x00007FF9373AE8FC ((<unknown>)) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: 'Unknown error [-529697949]' (Address: 00007FF77F59E274)
+0x00007FF77F59E274 (Unity) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: 'Unknown error [-529697949]' (Address: 00007FF77F57DB24)
+0x00007FF77F57DB24 (Unity) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: 'Unknown error [-529697949]' (Address: 00007FF77F578735)
+0x00007FF77F578735 (Unity) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: 'Unknown error [-529697949]' (Address: 00007FF77F6BACD3)
+0x00007FF77F6BACD3 (Unity) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: 'Unknown error [-529697949]' (Address: 00007FF77F57297B)
+0x00007FF77F57297B (Unity) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF77F56846D)
+0x00007FF77F56846D (Unity) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '指定されたモジュールが見つかりません。
+' (Address: 00007FF77F56FFF8)
+0x00007FF77F56FFF8 (Unity) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: 'Unknown error [-529697949]' (Address: 00007FF7804BF6CE)
+0x00007FF7804BF6CE (Unity) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: 'Unknown error [-529697949]' (Address: 00007FF7801A9610)
+0x00007FF7801A9610 (Unity) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: 'Unknown error [-529697949]' (Address: 00007FF78060EFE8)
+0x00007FF78060EFE8 (Unity) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: 'Unknown error [-529697949]' (Address: 00007FF7819C484E)
+0x00007FF7819C484E (Unity) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '無効なアドレスにアクセスしようとしています。
+' (Address: 00007FF9EEE77614)
+0x00007FF9EEE77614 (KERNEL32) (function-name not available)
+  ERROR: SymGetSymFromAddr64, GetLastError: '無効なアドレスにアクセスしようとしています。
+' (Address: 00007FF9F03026A1)
+0x00007FF9F03026A1 (ntdll) (function-name not available)
+
+========== END OF STACKTRACE ===========
+
+A crash has been intercepted by the crash handler. For call stack and other details, see the latest crash report generated in:
+ * C:/Users/Franco/AppData/Local/Temp/Unity/Editor/Crashes
