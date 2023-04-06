@@ -187,11 +187,11 @@ public class BulletUseEnemyAI : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (!EditorApplication.isPlaying)
-        {
-            m_StartPosition = transform.position;
-            m_GizmosPosition = transform.position;
-        }
+    //    if (!EditorApplication.isPlaying)
+    //    {
+    //        m_StartPosition = transform.position;
+    //        m_GizmosPosition = transform.position;
+    //    }
 
 
         LightObject.transform.position =

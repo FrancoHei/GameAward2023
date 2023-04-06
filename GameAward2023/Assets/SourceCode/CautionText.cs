@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class CautionText : MonoBehaviour
 {
+    [Header("ål")]
     public GameObject m_Owner;
+    [Header("ål‚Æ‹——£")]
     public Vector3    m_OffsetPosition;
     // Start is called before the first frame update
     void Start()

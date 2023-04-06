@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class PlayerState : MonoBehaviour
 {
+
+    [Header("跳ぶ途中方向変えるか")]
     public bool m_ChangeDirectionJump;
 
-    public bool m_ChangeDirectionWallJump;
-
     //プレイヤー地面動くスピード
+    [Header("地面移動速度")]
     public float m_OnFloorSpeed;
     //プレイヤー空中動くスピード
+    [Header("空中移動速度")]
     public float m_OnAirSpeed;
+    [Header("壁ジャンプ空中移動速度")]
     public float m_OnJumpAirSpeed;
 
     //------------------------------
     //普通ジャンプ
     //------------------------------
     //------------------------------
-    //ジャンプパワー(ジャンプ高さ)
+    [Header("ジャンプ高さ")]
     public float m_JumpPower;
-    //ジャンプパワー(ジャンプ高さ)
+    [Header("ジャンプ横移動速度")]
     public float m_JumpSpeed;
     private bool m_IsJump;
 
@@ -71,8 +74,10 @@ public class PlayerState : MonoBehaviour
     }
 
     //ジャンプ当たるLAYER
+    [Header("地面当たるレイヤ")]
     public LayerMask m_OnFloorHitLayer;
     //ジャンプ判定距離
+    [Header("地面判定距離")]
     public float m_OnFloorDistance;
 
     //-----------------------------------
@@ -99,14 +104,19 @@ public class PlayerState : MonoBehaviour
     }
 
     //壁ジャンプ当たるLAYER
+    [Header("壁ジャンプ当たるレイヤ")]
     public LayerMask m_WallJumpHitLayer;
     //壁ジャンプ判定距離
+    [Header("壁ジャンプ判定距離")]
     public float m_WallJumpDistance;
+    [Header("壁ジャンプ歩ける判定距離")]
     public float m_WallJumpWalkDistance;
 
     //壁ジャンプパワー(ジャンプ高さ)
+    [Header("壁ジャンプ高さ")]
     public float m_WallJumpPower;
     //壁ジャンプパワー(ジャンプ長さ)
+    [Header("壁ジャンプ横移動スピード")]
     public float m_WallJumpSpeed;
     //壁ジャンプ与える速度
     private Vector3 m_WallJumpVel;
@@ -168,13 +178,11 @@ public class PlayerState : MonoBehaviour
         get { return m_IsDoubleJump; }
     }
 
-    //ダブルジャンプ当たるLAYER
-    public LayerMask m_DoubleJumpHitLayer;
-    //ダブルジャンプ判定距離
-    public float m_DoubleJumpDistance;
     //ダブルジャンプパワー(ジャンプ高さ)
+    [Header("二段ジャンプ高さ")]
     public float m_DoubleJumpPower;
     //ダブルジャンプパワー(ジャンプ長さ)
+    [Header("二段ジャンプ横移動スピード")]
     public float m_DoubleJumpSpeed;
     //ダブルジャンプ与える速度
     private Vector3 m_DoubleJumpVel;
@@ -210,8 +218,10 @@ public class PlayerState : MonoBehaviour
 
 
     //スライディング与える速度
+    [Header("スライディングスピード")]
     public float  m_SlideSpeed;
     //最大スライド時間
+    [Header("スライディング最大時間")]
     public int    m_MaxSlideTimer;
     //今スライド時間
     private float m_SlideTimer;
@@ -231,6 +241,7 @@ public class PlayerState : MonoBehaviour
     private bool m_SlideJump;
 
     //スライディングジャンプパワー(ジャンプ高さ)
+    [Header("スライディングジャンプ高さ")]
     public float m_SlideJumpPower;
     public bool IsSlideJump
     {
@@ -247,9 +258,11 @@ public class PlayerState : MonoBehaviour
     }
 
     //スライド与える速度
+    [Header("スライディングジャンプ横移動スピード")]
     public float m_SlideJumpSpeed;
 
     //スライディングジャンプから空中ジャンプ速度オフセット
+    [Header("スライディングジャンプから空中ジャンプ速度オフセット")]
     public float m_SlideJumpDoubleJumpOffset;
 
     //使わない
@@ -259,6 +272,7 @@ public class PlayerState : MonoBehaviour
     //プレーヤーがターゲット取ってるか？
     private GameObject m_Target = null;
 
+    [Header("ターゲット投げるパワー")]
     public float m_TargetThrowPower;
     public GameObject Target
     {
@@ -284,6 +298,7 @@ public class PlayerState : MonoBehaviour
         get { return m_Wire;  }
     }
 
+    [Header("ワイヤースピード")]
     public float m_WireSpeed;
 
 }

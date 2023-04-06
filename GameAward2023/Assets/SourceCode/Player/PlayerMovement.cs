@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private PlayerParticle m_PP;
     private PlayerController m_PC;
 
+    private GameObject m_JumpWall;
+
     public enum WallJumpControlMethod 
     {
         AUTO,
@@ -118,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        if ((m_PS.IsLeftWallJump || m_PS.IsRightWallJump) && !m_PS.m_ChangeDirectionWallJump)
+        if ((m_PS.IsLeftWallJump || m_PS.IsRightWallJump))
         {
             //壁ジャンプ空中方向変えない
             //壁ジャンプ速度計算
@@ -314,8 +316,8 @@ public class PlayerMovement : MonoBehaviour
                 {
                     height = 0;
                 }
-                m_PS.WallJumpVel = new Vector3(m_PS.WallJumpVel.x * (Mathf.Abs(m_PS.OnAirMoveMentInput.x) + 1) * 0.6f, 0.0f, 0.0f);
-                m_Rb2D.AddForce(Vector3.up * (Mathf.Abs(height) + 1) * (m_PS.m_WallJumpPower) * 0.6f);
+                m_PS.WallJumpVel = new Vector3(m_PS.WallJumpVel.x * (Mathf.Abs(m_PS.OnAirMoveMentInput.x) + 1) * 0.6f * m_JumpWall.GetComponent<CanJumpWall>().m_Speed, 0.0f, 0.0f);
+                m_Rb2D.AddForce(Vector3.up * (Mathf.Abs(height) + 1) * (m_PS.m_WallJumpPower) * 0.6f * m_JumpWall.GetComponent<CanJumpWall>().m_Power);
                 return;
             }
 
@@ -325,7 +327,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (!m_PS.m_ChangeDirectionWallJump)
         {
             //壁ジャンプ空中方向変えない
             m_Rb2D.AddForce(Vector3.up * m_PS.m_WallJumpPower);
@@ -340,42 +341,6 @@ public class PlayerMovement : MonoBehaviour
             }
 
             m_Rb2D.velocity = new Vector2(m_PS.WallJumpVel.x * m_PS.m_WallJumpSpeed, 1.0f);
-        }
-        else
-        {
-            //壁ジャンプ空中方向変える
-            //角度計算、壁方向壁ジャンプダメ
-            Vector2 wallDirection = Vector2.zero;
-            if (m_PS.IsLeftWallJump)
-            {
-                wallDirection = new Vector2(1.0f, 0.0f);
-            }
-
-            if (m_PS.IsRightWallJump)
-            {
-                wallDirection = new Vector2(-1.0f, 0.0f);
-            }
-
-            float angle = Vector2.Dot(wallDirection, m_PS.OnAirMoveMentInput);
-
-            if (angle <= 0.0)
-            {
-                m_PS.OnAirMoveMentInput = new Vector2(0.0f, 0.0f);
-            }
-
-            //下方向壁ジャンプダメ
-            if (m_PS.OnAirMoveMentInput.y < 0 && angle <= 0)
-            {
-                m_PS.OnAirMoveMentInput = new Vector3(m_PS.OnAirMoveMentInput.x, 0, 0);
-            }
-
-            if (m_PS.OnAirMoveMentInput.y < 0 && angle > 0)
-            {
-                m_PS.OnAirMoveMentInput = new Vector3(m_PS.OnAirMoveMentInput.x, 0.1f, 0);
-            }
-            //
-            m_Rb2D.AddForce(m_PS.OnAirMoveMentInput * m_PS.m_WallJumpPower);
-            m_PS.WallJumpVel = new Vector3(m_PS.OnAirMoveMentInput.x, 0.0f, 0.0f);
         }
     }
 
@@ -562,6 +527,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (hit && hit.transform.gameObject.tag == "Wall")
         {
+            m_JumpWall = hit.transform.gameObject;
             return -1;
         }
 
@@ -569,6 +535,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (hit && hit.transform.gameObject.tag == "Wall")
         {
+            m_JumpWall = hit.transform.gameObject;
             return 1;
         }
 

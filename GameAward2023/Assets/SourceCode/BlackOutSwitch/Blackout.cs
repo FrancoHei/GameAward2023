@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Blackout : MonoBehaviour
 {
-
+    [Header("’â“dŽžŠÔ")]
     public int m_StopSecond;
     // Start is called before the first frame update
     void Start()

@@ -392,6 +392,7 @@
 "Assets/SourceCode/Bullet.cs"
 "Assets/SourceCode/Camera/FollowCamera.cs"
 "Assets/SourceCode/Camera/ShadowCamera.cs"
+"Assets/SourceCode/CanJumpWall.cs"
 "Assets/SourceCode/CautionText.cs"
 "Assets/SourceCode/Enemy/AoEEnemy.cs"
 "Assets/SourceCode/Enemy/BulletUseEnemyAI.cs"

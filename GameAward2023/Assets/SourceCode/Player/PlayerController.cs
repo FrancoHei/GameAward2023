@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private PlayerParticle m_PP;
     private PlayerMovement m_PM;
 
+    [Header("新しいコントロール方法")]
     public bool m_IsNewControl;
 
     private bool m_IsBPressed = false;

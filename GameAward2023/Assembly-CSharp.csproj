@@ -56,10 +56,13 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\SourceCode\Enemy\newBullet.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\SourceCode\Enemy\EnemyAI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\SourceCode\Enemy\newEnemyLight.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
+    <Compile Include="Assets\SourceCode\Enemy\NarrowEnemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\SourceCode\UI\GameoOverText.cs" />
     <Compile Include="Assets\SourceCode\UI\TimerText.cs" />
@@ -73,13 +76,16 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\SourceCode\SecurityCamera\LightController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
+    <Compile Include="Assets\SourceCode\Enemy\State_Enemy.cs" />
     <Compile Include="Assets\SourceCode\Enemy\ControlArea.cs" />
     <Compile Include="Assets\SourceCode\Bullet.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\SourceCode\BlackOutSwitch\Blackout.cs" />
     <Compile Include="Assets\SourceCode\Player\PlayerMovement.cs" />
     <Compile Include="Assets\SourceCode\GameSystem\GameSystem.cs" />
+    <Compile Include="Assets\SourceCode\Enemy\NarrowEnemyLight.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\SourceCode\Enemy\BulletUseEnemyAI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
@@ -90,6 +96,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
+    <Compile Include="Assets\SourceCode\CautionText.cs" />
     <Compile Include="Assets\SourceCode\Camera\FollowCamera.cs" />
     <Compile Include="Assets\SourceCode\Enemy\EnemyStartPoint.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
@@ -111,20 +118,14 @@
     <Compile Include="Assets\SourceCode\MapCamera.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\SourceCode\Player\PlayerController.cs" />
+    <Compile Include="Assets\SourceCode\Target.cs" />
     <Compile Include="Assets\SourceCode\Enemy\EnemyLight.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
+    <Compile Include="Assets\SourceCode\Enemy\AoEEnemy.cs" />
     <Compile Include="Assets\SourceCode\Enemy\EnemyAI2.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\SourceCode\UI\DebugText.cs" />
-    <Compile Include="Assets\SourceCode\Enemy\NarrowEnemyLight.cs" />
-    <Compile Include="Assets\SourceCode\Enemy\AoEEnemy.cs" />
-    <Compile Include="Assets\SourceCode\Enemy\State_Enemy.cs" />
-    <Compile Include="Assets\SourceCode\Enemy\NarrowEnemy.cs" />
-    <Compile Include="Assets\SourceCode\Enemy\newEnemyLight.cs" />
-    <Compile Include="Assets\SourceCode\Enemy\BulletUseEnemyAI.cs" />
-    <Compile Include="Assets\SourceCode\Enemy\newBullet.cs" />
-    <Compile Include="Assets\SourceCode\Target.cs" />
-    <Compile Include="Assets\SourceCode\CautionText.cs" />
+    <Compile Include="Assets\SourceCode\CanJumpWall.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
