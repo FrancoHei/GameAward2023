@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputValue input)
     {
+        if (!GameObject.Find("GameSystem").GetComponent<GameSystem>().CanInput) return;
+
         Vector2 value = input.Get<Vector2>();
 
         if (!m_PS.OnFloor)
@@ -59,6 +61,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputValue input)
     {
+        if (!GameObject.Find("GameSystem").GetComponent<GameSystem>().CanInput) return;
+
         if (m_IsNewControl && m_PS.Target) 
         {
             m_PM.HandleThrowTarget();
@@ -109,6 +113,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnLeftWallJump(InputValue input)
     {
+        if (!GameObject.Find("GameSystem").GetComponent<GameSystem>().CanInput) return;
+
         if (m_IsNewControl && m_PS.Target) return;
 
         if (!m_IsNewControl)
@@ -193,6 +199,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnRightWallJump(InputValue input)
     {
+        if (!GameObject.Find("GameSystem").GetComponent<GameSystem>().CanInput) return;
 
         if (m_IsNewControl && m_PS.Target) return;
 
@@ -282,6 +289,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnSlide(InputValue input)
     {
+        if (!GameObject.Find("GameSystem").GetComponent<GameSystem>().CanInput) return;
+
         //地面いないスライド出来ない
         if (!m_PS.OnFloor) return;
         if (m_IsNewControl && m_PS.Target)   return;

@@ -27,7 +27,9 @@ public class PlayerCollisionCheck : MonoBehaviour
         if (collision.gameObject.tag == "Target")
         {
             m_PS.Target = collision.gameObject;
-            m_PS.Target.GetComponent<CircleCollider2D>().isTrigger = true;
+            collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            m_PS.Target.GetComponent<BoxCollider2D>().isTrigger = true;
+            m_PS.Target.GetComponent<Target>().StartThrow = false;
         }
     }
 

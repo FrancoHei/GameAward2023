@@ -7,6 +7,15 @@ public class Target : MonoBehaviour
     private Rigidbody2D m_Rb2D;
     //ジャンプ当たるLAYER
     public LayerMask m_OnFloorHitLayer;
+    private bool m_StartThrow;
+
+    public bool StartThrow
+    {
+        set { m_StartThrow = value; }
+        get { return m_StartThrow; }
+    }
+
+    public float m_CheckFloorDistance;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,17 +25,24 @@ public class Target : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckOnFloor();   
+
+        if(m_StartThrow)
+            CheckOnFloor();   
     }
 
     private void CheckOnFloor()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 0.2f, m_OnFloorHitLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, m_CheckFloorDistance, m_OnFloorHitLayer);
 
         if (hit && (hit.transform.gameObject.tag == "Ground" || hit.transform.gameObject.tag == "Wall"))
         {
-            //地面にいる
-            m_Rb2D.velocity = Vector3.zero;
+            if(m_Rb2D.velocity.y < 0.0f) 
+            {
+                GameObject.Find("GameSystem").GetComponent<GameSystem>().GameOver = true;
+                //地面にいる
+                m_Rb2D.velocity = Vector3.zero;
+            }
+
         }
         else
         {

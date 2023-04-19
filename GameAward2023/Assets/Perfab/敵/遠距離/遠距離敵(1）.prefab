@@ -49,9 +49,9 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0
+  m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 0.95536214, b: 0.4481132, a: 1}
-  m_Intensity: 40
+  m_Intensity: 2
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 1
   m_ApplyToSortingLayers: 0000000071d56d78
@@ -161,9 +161,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1264767676824907938}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "\u9060\u8DDD\u96E2\u6575(1\uFF09"
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 8225384936066445430}
   - component: {fileID: 8603198541226347836}
   - component: {fileID: 1482636275499841138}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ControlArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,4 +428,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118bc131ac3778f4691a6750fc167e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_State: 0

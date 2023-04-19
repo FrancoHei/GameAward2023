@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class GameSystem : MonoBehaviour
 {
-    private bool m_IsBlackOut = false;
-    private bool m_IsGameOver = false;
+    private bool m_IsBlackOut  = false;
+    private bool m_IsGameOver  = false;
     private bool m_IsGameClear = false;
+    private bool m_CanInput    = true;
+
+    public List<GameObject> targetList;
 
     public bool BlackOut
     {
@@ -30,8 +33,22 @@ public class GameSystem : MonoBehaviour
         set { m_IsGameClear = value; }
     }
 
+    public bool CanInput 
+    {
+        get { return m_CanInput; }
+        set { m_CanInput = value; }
+    }
+
     public void OnRestart(InputValue input)
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+    }
+
+    private void Update()
+    {
+        if (m_IsGameOver)
+            m_CanInput = false;
+        if (m_IsGameClear)
+            m_CanInput = false;
     }
 }

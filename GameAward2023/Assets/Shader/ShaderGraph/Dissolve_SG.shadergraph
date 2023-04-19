@@ -2010,7 +2010,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"dd5d47082e94dcc47b477d5770b30fd0\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"16ba6eb4feacbae4d8323a7c5c95af70\",\"type\":3}}",
         "m_Guid": ""
     },
     "isMainTexture": false,

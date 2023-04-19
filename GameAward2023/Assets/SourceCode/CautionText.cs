@@ -29,12 +29,12 @@ public class CautionText : MonoBehaviour
         {
             if (m_Owner.GetComponent<State_Enemy>().State == State_Enemy.EnemyAiState.MOVE)
             {
-                transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().text = "NORMAL";
+                transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().text = "í èÌ";
             }
             else
            if (m_Owner.GetComponent<State_Enemy>().State == State_Enemy.EnemyAiState.CHASE)
             {
-                transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().text = "CAUTION";
+                transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().text = "åxâ˙";
             }
         }
         else
@@ -42,17 +42,17 @@ public class CautionText : MonoBehaviour
         {
             if (m_Owner.GetComponent<EnemyState>().State == EnemyState.EnemyAiState.NORMAL || m_Owner.GetComponent<EnemyState>().State == EnemyState.EnemyAiState.RETURNTOSTARTPOINT)
             {
-                transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().text = "NORMAL";
+                transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().text = "í èÌ";
             }
             else
             if (m_Owner.GetComponent<EnemyState>().State == EnemyState.EnemyAiState.VIGILANCE)
             {
-                transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().text = "CAUTION";
+                transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().text = "åxâ˙";
             }
             else
             if (m_Owner.GetComponent<EnemyState>().State == EnemyState.EnemyAiState.DISCOVER)
             {
-                transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().text = "ATTACK";
+                transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().text = "î≠å©";
             }
         }
     }

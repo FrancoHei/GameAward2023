@@ -75,8 +75,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (m_PS.OnAirMoveMentInput != Vector3.zero)
                 {
-                    if(Vector3.Dot(m_PS.OnAirMoveMentInput, m_PS.RightJumpVel) < 0)
-                        m_PS.RightJumpVel += new Vector3(m_PS.OnAirMoveMentInput.x * m_PS.m_OnJumpAirSpeed, 0.0f, 0.0f);
+                    if(Vector3.Dot(m_PS.OnAirMoveMentInput, m_PS.RightJumpVel) < 0) 
+                    {
+                        if(m_Rb2D.velocity.y < 0)
+                            m_PS.RightJumpVel += new Vector3(m_PS.OnAirMoveMentInput.x * m_PS.m_OnJumpAirSpeed, 0.0f, 0.0f);
+                    }
                 }
                 m_Rb2D.velocity = new Vector2(m_PS.RightJumpVel.x * m_PS.m_JumpSpeed, m_Rb2D.velocity.y);
             }
@@ -85,8 +88,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (m_PS.OnAirMoveMentInput != Vector3.zero)
                 {
-                    if (Vector3.Dot(m_PS.OnAirMoveMentInput, m_PS.LeftJumpVel) < 0)
-                        m_PS.LeftJumpVel += new Vector3(m_PS.OnAirMoveMentInput.x * m_PS.m_OnJumpAirSpeed, 0.0f, 0.0f) ;
+                    if (Vector3.Dot(m_PS.OnAirMoveMentInput, m_PS.LeftJumpVel) < 0) 
+                    {
+                        if (m_Rb2D.velocity.y < 0)
+                        {
+                            m_PS.LeftJumpVel += new Vector3(m_PS.OnAirMoveMentInput.x * m_PS.m_OnJumpAirSpeed, 0.0f, 0.0f);
+                        }
+                    }
                 }
                 m_Rb2D.velocity = new Vector2(m_PS.LeftJumpVel.x * m_PS.m_JumpSpeed, m_Rb2D.velocity.y);
             }
@@ -378,9 +386,10 @@ public class PlayerMovement : MonoBehaviour
         if (m_TargetThrowMethod == TARGETTHROWMETHOD.LEFTSTICK)
         {
             Vector2 direction = new Vector2(m_PS.MoveMentInput.x, Vector2.up.y * (Mathf.Abs(m_PS.MoveMentInput.y ) + 0.5f));
-            m_PS.Target.GetComponent<CircleCollider2D>().isTrigger = false;
+            m_PS.Target.GetComponent<BoxCollider2D>().isTrigger = false;
             m_PS.Target.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             m_PS.Target.GetComponent<Rigidbody2D>().AddForce(direction * m_PS.m_TargetThrowPower);
+            m_PS.Target.GetComponent<Target>().StartThrow = true;
             m_PS.Target = null;
         }else
         if (m_TargetThrowMethod == TARGETTHROWMETHOD.MOVEMENT)
