@@ -84,7 +84,6 @@
     <Compile Include="Assets\SourceCode\Bullet.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\SourceCode\BlackOutSwitch\Blackout.cs" />
-    <Compile Include="Assets\Arrow.cs" />
     <Compile Include="Assets\SourceCode\Player\PlayerMovement.cs" />
     <Compile Include="Assets\SourceCode\GameSystem\GameSystem.cs" />
     <Compile Include="Assets\SourceCode\Enemy\NarrowEnemyLight.cs" />

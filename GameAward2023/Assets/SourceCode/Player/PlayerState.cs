@@ -127,6 +127,7 @@ public class PlayerState : MonoBehaviour
         get { return m_WallJumpVel; }
     }
 
+    public float m_MaxWallJumpVel;
 
     private bool m_IsRightJump;
 
@@ -274,6 +275,8 @@ public class PlayerState : MonoBehaviour
 
     [Header("ターゲット投げるパワー")]
     public float m_TargetThrowPower;
+    [Header("ターゲット投げるパワーオフセット")]
+    public Vector2 m_TargetThrowPowerOffset;
     public GameObject Target
     {
         set { m_Target = value; }

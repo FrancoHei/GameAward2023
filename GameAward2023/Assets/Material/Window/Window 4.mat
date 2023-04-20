@@ -132,7 +132,7 @@ Material:
     - _GlossyReflections: 0
     - _LightAffectsAdditive: 0
     - _Metallic: 0
-    - _NoiseScale: 0
+    - _NoiseScale: 25
     - _OcclusionStrength: 1
     - _OutlineMipLevel: 0
     - _OutlineOpaqueAlpha: 1
@@ -141,7 +141,11 @@ Material:
     - _OutlineWidth: 3
     - _Parallax: 0.005
     - _QueueOffset: 0
+    - _RainScale: 0
+    - _RainSpeed: 0.4
     - _ReceiveShadows: 0
+    - _SmokeNoiseScale: 31.8
+    - _SmokeTimeScale: 0.08
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -151,7 +155,10 @@ Material:
     - _StraightAlphaInput: 0
     - _Surface: 0
     - _ThresholdEnd: 0.25
+    - _TimeScale: 0.1
     - _Use8Neighbourhood: 1
+    - _WindowBrokeAngle: 33
+    - _WindowBrokeDensity: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -159,8 +166,11 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _Offset: {r: 0.52, g: 0.3, b: 0, a: 0}
+    - _Offset: {r: 0.63, g: 0, b: 0, a: 0}
     - _OutlineColor: {r: 1, g: 1, b: 0, a: 1}
+    - _RainColor: {r: -32.59, g: -1.8, b: 110.98, a: -42.3}
+    - _RainPosition: {r: 0, g: 0, b: 0, a: 0}
+    - _RainTile: {r: 9.09, g: 1.25, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _Tile: {r: 0.36, g: 1, b: 0, a: 0}

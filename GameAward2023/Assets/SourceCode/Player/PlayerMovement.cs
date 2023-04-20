@@ -141,9 +141,9 @@ public class PlayerMovement : MonoBehaviour
             m_Rb2D.velocity = new Vector2(m_PS.WallJumpVel.x * m_PS.m_WallJumpSpeed, m_Rb2D.velocity.y);
 
             //???bebug
-            if(m_Rb2D.velocity.y > 42) 
+            if(m_Rb2D.velocity.y > m_PS.m_MaxWallJumpVel) 
             {
-                m_Rb2D.velocity = new Vector2(m_Rb2D.velocity.x,24);
+                m_Rb2D.velocity = new Vector2(m_Rb2D.velocity.x,m_PS.m_MaxWallJumpVel);
             }
         }
 
@@ -355,6 +355,7 @@ public class PlayerMovement : MonoBehaviour
     public void HandleDoubleJump()
     {
         Instantiate(m_PP.m_DoubleJumpVFX, transform.position, Quaternion.identity);
+        m_Rb2D.velocity = Vector2.zero;
 
         InitJump();
 
@@ -385,7 +386,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (m_TargetThrowMethod == TARGETTHROWMETHOD.LEFTSTICK)
         {
-            Vector2 direction = new Vector2(m_PS.MoveMentInput.x, Vector2.up.y * (Mathf.Abs(m_PS.MoveMentInput.y ) + 0.5f));
+            Vector2 direction = new Vector2(m_PS.MoveMentInput.x + m_PS.m_TargetThrowPowerOffset.x, Vector2.up.y * (Mathf.Abs(m_PS.MoveMentInput.y ) + m_PS.m_TargetThrowPowerOffset.y));
             m_PS.Target.GetComponent<BoxCollider2D>().isTrigger = false;
             m_PS.Target.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             m_PS.Target.GetComponent<Rigidbody2D>().AddForce(direction * m_PS.m_TargetThrowPower);
