@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5148213560945378723}
   - component: {fileID: 6551144238771209643}
   - component: {fileID: 2192656943327001900}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: "\u767A\u898B\u5224\u5B9A"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,9 +161,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1264767676824907938}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: "\u9060\u8DDD\u96E2\u6575(1\uFF09"
-  m_TagString: Ground
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 8225384936066445430}
   - component: {fileID: 8603198541226347836}
   - component: {fileID: 1482636275499841138}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ControlArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 2345140959387787562}
   - component: {fileID: 2391929688764938151}
   - component: {fileID: 9121674995094340509}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Body
   m_TagString: Ground
   m_Icon: {fileID: 0}

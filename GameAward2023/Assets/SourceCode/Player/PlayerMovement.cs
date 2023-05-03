@@ -43,8 +43,27 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         //ターゲット前持つ
-        if (m_PS.Target)
+        if (m_PS.Target) 
+        {
             m_PS.Target.transform.position = transform.position + new Vector3(transform.forward.z * 0.5f, transform.up.y * 0.5f, 0.0f);
+            GetComponents<CapsuleCollider2D>()[0].enabled = false;
+            GetComponents<CapsuleCollider2D>()[1].enabled = false;
+            GetComponents<CapsuleCollider2D>()[2].enabled = true;
+        }
+        else 
+        {
+            if (m_PS.IsSlide) 
+            {
+                GetComponents<CapsuleCollider2D>()[0].enabled = false;
+                GetComponents<CapsuleCollider2D>()[1].enabled = true;
+                GetComponents<CapsuleCollider2D>()[2].enabled = false;
+            }else 
+            {
+                GetComponents<CapsuleCollider2D>()[0].enabled = true;
+                GetComponents<CapsuleCollider2D>()[1].enabled = false;
+                GetComponents<CapsuleCollider2D>()[2].enabled = false;
+            }
+        }
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -69,10 +88,9 @@ public class PlayerMovement : MonoBehaviour
                                           m_Rb2D.velocity.y);
         }
 
-        if (m_PC.m_IsNewControl)
+      
+        if (m_PS.IsRightJump && !m_PS.IsDoubleJump && !m_PS.IsJump)
         {
-            if (m_PS.IsRightJump)
-            {
                 if (m_PS.OnAirMoveMentInput != Vector3.zero)
                 {
                     if(Vector3.Dot(m_PS.OnAirMoveMentInput, m_PS.RightJumpVel) < 0) 
@@ -82,12 +100,12 @@ public class PlayerMovement : MonoBehaviour
                     }
                 }
                 m_Rb2D.velocity = new Vector2(m_PS.RightJumpVel.x * m_PS.m_JumpSpeed, m_Rb2D.velocity.y);
-            }
+        }
 
-            if (m_PS.IsLeftJump)
+         if (m_PS.IsLeftJump && !m_PS.IsDoubleJump && !m_PS.IsJump)
+         {
+            if (m_PS.OnAirMoveMentInput != Vector3.zero)
             {
-                if (m_PS.OnAirMoveMentInput != Vector3.zero)
-                {
                     if (Vector3.Dot(m_PS.OnAirMoveMentInput, m_PS.LeftJumpVel) < 0) 
                     {
                         if (m_Rb2D.velocity.y < 0)
@@ -95,30 +113,30 @@ public class PlayerMovement : MonoBehaviour
                             m_PS.LeftJumpVel += new Vector3(m_PS.OnAirMoveMentInput.x * m_PS.m_OnJumpAirSpeed, 0.0f, 0.0f);
                         }
                     }
-                }
-                m_Rb2D.velocity = new Vector2(m_PS.LeftJumpVel.x * m_PS.m_JumpSpeed, m_Rb2D.velocity.y);
             }
+          m_Rb2D.velocity = new Vector2(m_PS.LeftJumpVel.x * m_PS.m_JumpSpeed, m_Rb2D.velocity.y);
+            
+         }
 
 
-            if (!m_PS.Target) 
-            {
-                CheckRightWallJump();
-                CheckLeftWallJump();
-            }
+        if (!m_PS.Target)
+        {
+            CheckRightWallJump();
+            CheckLeftWallJump();
         }
 
         //二段ジャンプ速度計算
-        if (!m_PS.m_ChangeDirectionJump && m_PS.IsDoubleJump && !m_PC.m_IsNewControl)
+        if (!m_PS.m_ChangeDirectionJump && m_PS.IsDoubleJump)
         {
             m_Rb2D.velocity = new Vector2(m_PS.DoubleJumpVel.x * m_PS.m_DoubleJumpSpeed, m_Rb2D.velocity.y);
         }
         else
-        if (m_PS.m_ChangeDirectionJump && m_PS.IsDoubleJump && !m_PC.m_IsNewControl)
+        if (m_PS.m_ChangeDirectionJump && m_PS.IsDoubleJump)
         {
             if (m_PS.OnAirMoveMentInput != Vector3.zero)
             {
                 m_PS.DoubleJumpVel = new Vector3(Mathf.Sign(m_PS.OnAirMoveMentInput.x) * Mathf.Abs(m_PS.DoubleJumpVel.x), 0.0f, 0.0f); ;
-                m_Rb2D.velocity = new Vector2(m_PS.DoubleJumpVel.x * m_PS.m_DoubleJumpSpeed, m_Rb2D.velocity.y);
+                m_Rb2D.velocity    = new Vector2(m_PS.DoubleJumpVel.x * m_PS.m_DoubleJumpSpeed, m_Rb2D.velocity.y);
             }
             else
             {
@@ -139,12 +157,6 @@ public class PlayerMovement : MonoBehaviour
                     m_PS.WallJumpVel = m_PS.OnAirMoveMentInput;
             }      
             m_Rb2D.velocity = new Vector2(m_PS.WallJumpVel.x * m_PS.m_WallJumpSpeed, m_Rb2D.velocity.y);
-
-            //???bebug
-            if(m_Rb2D.velocity.y > m_PS.m_MaxWallJumpVel) 
-            {
-                m_Rb2D.velocity = new Vector2(m_Rb2D.velocity.x,m_PS.m_MaxWallJumpVel);
-            }
         }
 
         //スライド速度計算
@@ -176,7 +188,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-   
+        //???bebug
+        if (m_Rb2D.velocity.y > m_PS.m_MaxWallJumpVel)
+        {
+            m_Rb2D.velocity = new Vector2(m_Rb2D.velocity.x, m_PS.m_MaxWallJumpVel);
+        }
 
         //スライド
         SlideTimer();
@@ -186,60 +202,49 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleJump()
     {
+        if (m_PS.IsDoubleJump) return;
+
         Instantiate(m_PP.m_JumpVFX, transform.position, Quaternion.identity);
+        
+
+        Physics2D.gravity = new Vector2(0, -9.81f);
 
         if (m_PS.IsWire)
-        {
+        { 
             m_Rb2D.AddForce(Vector3.up * m_PS.m_JumpPower * 1.2f);
-        }
-        else
+        }else
         {
-            if (m_PC.m_IsNewControl) 
+            if (!m_PS.IsDoubleJump && !m_PS.OnFloor)
+            {
+               m_Rb2D.velocity = Vector2.zero;
+               m_Rb2D.AddForce(Vector3.up * m_PS.m_JumpPower);
+               m_PS.IsDoubleJump = true;
+               m_PS.DoubleJumpVel = new Vector3(m_Rb2D.velocity.x, 0.0f, 0.0f);
+            }else
+            if(m_PS.OnFloor && !m_PS.IsLeftJump && !m_PS.IsRightJump && !m_PS.IsJump)
             {
                 m_Rb2D.velocity = Vector2.zero;
                 m_Rb2D.AddForce(Vector3.up * m_PS.m_JumpPower);
+               m_PS.FirstJumpVel = new Vector3(m_Rb2D.velocity.x, 0.0f, 0.0f);
             }
-            else 
-            {
-                m_PS.FirstJumpVel = new Vector3(m_Rb2D.velocity.x, 0.0f, 0.0f);
-                m_Rb2D.AddForce(Vector3.up * m_PS.m_JumpPower);
-            }
+
         }
-
-
-        Physics2D.gravity = new Vector2(0, -9.81f);
 
         m_PS.IsJump = true;
-    }
 
-    public void HandleUpwardJump() 
-    {
-        if (m_PS.IsWire)
-        {
-            m_Rb2D.AddForce(Vector3.up * m_PS.m_JumpPower * 1.2f);
-        }
-        else
-        {
-            m_Rb2D.AddForce(Vector3.up * m_PS.m_JumpPower);
-        }
-
-
-        Physics2D.gravity = new Vector2(0, -9.81f);
-
-
-        Instantiate(m_PP.m_JumpVFX, transform.position, Quaternion.identity);
-
-        m_PS.IsJump = true;
     }
 
     public void HandlRightJump()
     {
-        Physics2D.gravity = new Vector2(0, -9.81f);
+        if (m_PS.IsDoubleJump) return;
 
+        Physics2D.gravity = new Vector2(0, -9.81f);
 
         if (m_PS.IsSlide) 
         {
             if (!CheckCanSlideJump()) return;
+
+            m_Rb2D.velocity = Vector2.zero;
 
             Instantiate(m_PP.m_SlideJumpVFX, transform.position, Quaternion.identity);
 
@@ -255,22 +260,38 @@ public class PlayerMovement : MonoBehaviour
         {
             Instantiate(m_PP.m_JumpVFX, transform.position, Quaternion.identity);
 
-            m_Rb2D.AddForce(Vector3.up * m_PS.m_JumpPower);
-            m_PS.RightJumpVel = new Vector3(Vector2.right.x, 0.0f, 0.0f);
+            if (!m_PS.IsDoubleJump && !m_PS.OnFloor)
+            {
+                m_Rb2D.velocity = Vector2.zero;
+                m_PS.IsDoubleJump = true;
+                m_PS.DoubleJumpVel = new Vector3(Vector2.right.x, 0.0f, 0.0f);
+                m_Rb2D.AddForce(Vector3.up * m_PS.m_JumpPower);
+            }
+            else 
+            if(m_PS.OnFloor && !m_PS.IsJump && !m_PS.IsRightJump)
+            {
+                m_Rb2D.velocity = Vector2.zero;
+                m_Rb2D.AddForce(Vector3.up * m_PS.m_JumpPower);
+                m_PS.RightJumpVel = new Vector3(Vector2.right.x, 0.0f, 0.0f);
+            }
         }
+
         m_PS.IsRightJump = true;
-        m_Rb2D.velocity  = Vector2.zero;
 
     }
 
     public void HandlLeftJump()
     {
+        if (m_PS.IsDoubleJump) return;
+
         Physics2D.gravity = new Vector2(0, -9.81f);
+
 
         if (m_PS.IsSlide)
         {
             if (!CheckCanSlideJump()) return;
 
+            m_Rb2D.velocity = Vector2.zero;
             Instantiate(m_PP.m_SlideJumpVFX, transform.position, Quaternion.identity);
 
             m_Rb2D.AddForce(Vector3.up * m_PS.m_SlideJumpPower);
@@ -285,12 +306,23 @@ public class PlayerMovement : MonoBehaviour
         {
             Instantiate(m_PP.m_JumpVFX, transform.position, Quaternion.identity);
 
-            m_Rb2D.AddForce(Vector3.up * m_PS.m_JumpPower);
-            m_PS.LeftJumpVel = new Vector3(Vector2.left.x, 0.0f, 0.0f);
+            if (!m_PS.IsDoubleJump && !m_PS.OnFloor)
+            {
+                m_PS.IsDoubleJump  = true;
+                m_Rb2D.velocity = Vector2.zero;
+                m_PS.DoubleJumpVel = new Vector3(Vector2.left.x, 0.0f, 0.0f);
+                m_Rb2D.AddForce(Vector3.up * m_PS.m_JumpPower);
+            }
+            else
+            if (m_PS.OnFloor && !m_PS.IsJump && !m_PS.IsLeftJump)
+            {
+                m_Rb2D.velocity = Vector2.zero;
+                m_PS.LeftJumpVel = new Vector3(Vector2.left.x, 0.0f, 0.0f);
+                m_Rb2D.AddForce(Vector3.up * m_PS.m_JumpPower);
+            }
         }
 
         m_PS.IsLeftJump = true;
-        m_Rb2D.velocity = Vector2.zero;
     }
 
     public void HandleWallJump()
@@ -352,21 +384,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void HandleDoubleJump()
-    {
-        Instantiate(m_PP.m_DoubleJumpVFX, transform.position, Quaternion.identity);
-        m_Rb2D.velocity = Vector2.zero;
-
-        InitJump();
-
-        m_PS.IsDoubleJump = true;
-
-        m_PS.DoubleJumpVel = new Vector3(m_Rb2D.velocity.x,0.0f,0.0f);
-        m_Rb2D.velocity    = Vector3.zero;
-
-        m_Rb2D.AddForce(Vector3.up * m_PS.m_DoubleJumpPower);
-    }
-
     public void HandleSlideJump()
     {
         if (!CheckCanSlideJump()) return;
@@ -391,8 +408,14 @@ public class PlayerMovement : MonoBehaviour
             m_PS.Target.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             m_PS.Target.GetComponent<Rigidbody2D>().AddForce(direction * m_PS.m_TargetThrowPower);
             m_PS.Target.GetComponent<Target>().StartThrow = true;
+            m_PS.Target.GetComponent<Target>().CanCatch   = false;
+            GameObject.Find("MiniCamera_UI").GetComponent<MiniIconUI>().SetTarget(m_PS.Target);
             m_PS.Target = null;
-        }else
+            GetComponents<CapsuleCollider2D>()[0].enabled = false;
+            GetComponents<CapsuleCollider2D>()[1].enabled = false;
+            GetComponents<CapsuleCollider2D>()[2].enabled = true;
+        }
+        else
         if (m_TargetThrowMethod == TARGETTHROWMETHOD.MOVEMENT)
         {
             Vector2 direction = Vector2.zero;
@@ -488,6 +511,7 @@ public class PlayerMovement : MonoBehaviour
         m_PS.IsSlide = false;
         GetComponents<CapsuleCollider2D>()[0].enabled = true;
         GetComponents<CapsuleCollider2D>()[1].enabled = false;
+        GetComponents<CapsuleCollider2D>()[2].enabled = false;
         m_PS.SlideVel = Vector3.zero;
         m_PS.SlideTimer = 0;
 
@@ -497,7 +521,7 @@ public class PlayerMovement : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, m_PS.m_OnFloorDistance, m_PS.m_OnFloorHitLayer);
 
-        if (hit && (hit.transform.gameObject.tag == "Ground" || hit.transform.gameObject.tag == "Wall"))
+        if (hit && (hit.transform.gameObject.tag == "Ground" || hit.transform.gameObject.tag == "Wall" || hit.transform.gameObject.tag == "Enemy"))
         {
             //地面到着瞬間
             if (!m_PS.OnFloor)
@@ -602,13 +626,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void SetRotate()
     {
-        if (m_Rb2D.velocity.x > 0)
+        if (m_Rb2D.velocity.x > 0 && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump)
         {
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward);
             transform.rotation = toRotation;
         }
 
-        if (m_Rb2D.velocity.x < 0)
+        if (m_Rb2D.velocity.x < 0 && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(-Vector3.forward);
+            transform.rotation = toRotation;
+        }
+
+        if (m_PS.IsLeftWallJump)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward);
+            transform.rotation = toRotation;
+        }
+
+        if (m_PS.IsRightWallJump)
         {
             Quaternion toRotation = Quaternion.LookRotation(-Vector3.forward);
             transform.rotation = toRotation;

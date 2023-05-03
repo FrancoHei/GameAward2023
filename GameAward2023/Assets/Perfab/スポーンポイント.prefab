@@ -428,6 +428,7 @@ GameObject:
   - component: {fileID: 7270607716435810196}
   - component: {fileID: 7270607716435810199}
   - component: {fileID: 7270607716435810198}
+  - component: {fileID: 4320232398550294232}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -674,6 +675,7 @@ MonoBehaviour:
   m_WallJumpWalkDistance: 1.2
   m_WallJumpPower: 1200
   m_WallJumpSpeed: 5
+  m_MaxWallJumpVel: 0
   m_DoubleJumpPower: 800
   m_DoubleJumpSpeed: 1
   m_SlideSpeed: 15
@@ -682,6 +684,7 @@ MonoBehaviour:
   m_SlideJumpSpeed: 0.4
   m_SlideJumpDoubleJumpOffset: 0.4
   m_TargetThrowPower: 550
+  m_TargetThrowPowerOffset: {x: 0, y: 0}
   m_WireSpeed: 6
 --- !u!114 &7270607716435810186
 MonoBehaviour:
@@ -751,6 +754,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8bbae10d2b3c544855c05183318989, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &4320232398550294232
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7270607716435810183}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.3, y: 16.01}
+  m_Size: {x: 30, y: 21.900002}
+  m_Direction: 0
 --- !u!1 &7270607716556090630
 GameObject:
   m_ObjectHideFlags: 0

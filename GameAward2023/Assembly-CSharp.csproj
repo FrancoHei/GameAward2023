@@ -61,15 +61,16 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\SourceCode\Enemy\EnemyAI.cs" />
     <Compile Include="Assets\SourceCode\FadeOut.cs" />
+    <Compile Include="Assets\SourceCode\UI\BlackScreen.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\SourceCode\Enemy\newEnemyLight.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\SourceCode\Enemy\NarrowEnemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
-    <Compile Include="Assets\SourceCode\UI\GameoOverText.cs" />
     <Compile Include="Assets\SourceCode\UI\TimerText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\SourceCode\Player\PlayerState.cs" />
+    <Compile Include="Assets\Perfab\MiniCamera\MiniCameraManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\SourceCode\Camera\ShadowCamera.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
@@ -82,9 +83,12 @@
     <Compile Include="Assets\SourceCode\Enemy\State_Enemy.cs" />
     <Compile Include="Assets\SourceCode\Enemy\ControlArea.cs" />
     <Compile Include="Assets\SourceCode\Bullet.cs" />
+    <Compile Include="Assets\Scenes\MainMenu\TitleEvent.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\SourceCode\BlackOutSwitch\Blackout.cs" />
+    <Compile Include="Assets\Perfab\MiniCamera\MiniCamera.cs" />
     <Compile Include="Assets\SourceCode\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Perfab\MiniCamera\MiniCameraUI.cs" />
     <Compile Include="Assets\SourceCode\GameSystem\GameSystem.cs" />
     <Compile Include="Assets\SourceCode\Enemy\NarrowEnemyLight.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
@@ -107,6 +111,7 @@
     <Compile Include="Assets\SourceCode\Player\PlayerCollisionCheck.cs" />
     <Compile Include="Assets\SourceCode\Enemy\EnemyNet.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
+    <Compile Include="Assets\Scenes\MainMenu\TitleController.cs" />
     <Compile Include="Assets\SourceCode\Goal.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\SourceCode\Enemy\EnemyState.cs" />
@@ -114,7 +119,6 @@
     <Compile Include="Assets\SourceCode\Player\PlayerParticle.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\SourceCode\MainMenu\MainMenu.cs" />
-    <Compile Include="Assets\SourceCode\UI\GameClearText.cs" />
     <Compile Include="Assets\SourceCode\BackGround\BackGround.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -130,6 +134,12 @@
     <Compile Include="Assets\SourceCode\Enemy\EnemyAI2.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\SourceCode\UI\DebugText.cs" />
+    <Compile Include="Assets\Perfab\MiniCamera\MiniIconUI.cs" />
+    <Compile Include="Assets\Perfab\MiniCamera\CircleBase.cs" />
+    <Compile Include="Assets\Scenes\GameOverClear\Result\menu.cs" />
+    <Compile Include="Assets\Scenes\GameOverClear\Result\Over.cs" />
+    <Compile Include="Assets\Scenes\Pause\Pause\LoopSelect.cs" />
+    <Compile Include="Assets\Scenes\Pause\Pause\ActivateUi.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

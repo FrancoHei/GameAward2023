@@ -46,9 +46,13 @@ public class GameSystem : MonoBehaviour
 
     private void Update()
     {
-        if (m_IsGameOver)
-            m_CanInput = false;
-        if (m_IsGameClear)
-            m_CanInput = false;
+        if (m_IsGameOver) 
+        {
+            SceneManager.LoadScene("GameOverScene", LoadSceneMode.Single);
+        }
+        if (m_IsGameClear) 
+        {
+            SceneManager.LoadScene("GameClearScene", LoadSceneMode.Single);
+        }
     }
 }

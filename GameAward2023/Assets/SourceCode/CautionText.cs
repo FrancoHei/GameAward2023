@@ -29,11 +29,13 @@ public class CautionText : MonoBehaviour
         {
             if (m_Owner.GetComponent<State_Enemy>().State == State_Enemy.EnemyAiState.MOVE)
             {
+                transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                 transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().text = "í èÌ";
             }
             else
            if (m_Owner.GetComponent<State_Enemy>().State == State_Enemy.EnemyAiState.CHASE)
             {
+                transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
                 transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().text = "åxâ˙";
             }
         }
@@ -42,11 +44,13 @@ public class CautionText : MonoBehaviour
         {
             if (m_Owner.GetComponent<EnemyState>().State == EnemyState.EnemyAiState.NORMAL || m_Owner.GetComponent<EnemyState>().State == EnemyState.EnemyAiState.RETURNTOSTARTPOINT)
             {
+                transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
                 transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().text = "í èÌ";
             }
             else
             if (m_Owner.GetComponent<EnemyState>().State == EnemyState.EnemyAiState.VIGILANCE)
             {
+                transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
                 transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().text = "åxâ˙";
             }
             else

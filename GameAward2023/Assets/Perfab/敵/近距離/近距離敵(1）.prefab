@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 7183192216087347015}
   - component: {fileID: 7183192216087347011}
   - component: {fileID: 7183192216087347008}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: "\u8FD1\u8DDD\u96E2\u6575(1\uFF09"
-  m_TagString: Ground
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,7 +169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7183192217179750340}
   - component: {fileID: 7183192217179750341}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

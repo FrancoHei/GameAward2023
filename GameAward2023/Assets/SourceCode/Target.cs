@@ -8,11 +8,18 @@ public class Target : MonoBehaviour
     //ƒWƒƒƒ“ƒv“–‚½‚éLAYER
     public LayerMask m_OnFloorHitLayer;
     private bool m_StartThrow;
+    private bool m_CanCatch = true;
 
     public bool StartThrow
     {
         set { m_StartThrow = value; }
         get { return m_StartThrow; }
+    }
+
+    public bool CanCatch 
+    {
+        set { m_CanCatch = value; }
+        get { return m_CanCatch;  }
     }
 
     public float m_CheckFloorDistance;
@@ -25,9 +32,15 @@ public class Target : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (m_StartThrow) 
+        {
+            CheckOnFloor();
+        }
 
-        if(m_StartThrow)
-            CheckOnFloor();   
+        if (!m_CanCatch && m_Rb2D.velocity.y <= 0.0f)
+        {
+            m_CanCatch = true;
+        }
     }
 
     private void CheckOnFloor()

@@ -26,10 +26,15 @@ public class PlayerCollisionCheck : MonoBehaviour
     {
         if (collision.gameObject.tag == "Target")
         {
+            if (!collision.gameObject.GetComponent<Target>().CanCatch) return;
             m_PS.Target = collision.gameObject;
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             m_PS.Target.GetComponent<BoxCollider2D>().isTrigger = true;
             m_PS.Target.GetComponent<Target>().StartThrow = false;
+
+            GetComponents<CapsuleCollider2D>()[0].enabled = false;
+            GetComponents<CapsuleCollider2D>()[1].enabled = false;
+            GetComponents<CapsuleCollider2D>()[2].enabled = true;
         }
     }
 

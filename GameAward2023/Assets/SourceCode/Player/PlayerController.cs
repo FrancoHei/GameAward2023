@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         }
 
         if (m_PS.OnFloor || m_PS.IsWire)
-            {
+        {
                 if (m_PS.IsSlide)
                 {
                     m_PM.HandleSlideJump();
@@ -80,34 +80,33 @@ public class PlayerController : MonoBehaviour
                 //ジャンプ処理
                 m_PM.HandleJump();
                 return;
-            }
-            else
-            {
+        }
+        else
+        {
                 if (m_IsNewControl) 
                 {
-                    if ((m_PS.IsRightJump || m_PS.IsLeftJump || m_PS.IsJump) && !m_PS.IsDoubleJump)
+                    if ((m_PS.IsRightJump || m_PS.IsLeftJump || m_PS.IsJump))
                     {
                         m_PS.IsRightJump = false;
-                        m_PS.IsLeftJump = false;
-                        m_PS.IsDoubleJump = true;
+                        m_PS.IsLeftJump  = false;
                         m_PM.HandleJump();
                         return;
                     }
                 }
-                //二段ジャンプ
-                if (!m_PS.IsDoubleJump && m_PS.IsJump && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump)
-                {
-                    m_PM.HandleDoubleJump();
-                    return;
-                }
+                ////二段ジャンプ
+                //if (!m_PS.IsDoubleJump && m_PS.IsJump && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump)
+                //{
+                //    m_PM.HandleDoubleJump();
+                //    return;
+                //}
 
-                //二段ジャンプ
-                if (!m_PS.IsDoubleJump && m_PS.IsSlideJump && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump)
-                {
-                    m_PM.HandleDoubleJump();
-                    return;
-                }
-            }
+                ////二段ジャンプ
+                //if (!m_PS.IsDoubleJump && m_PS.IsSlideJump && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump)
+                //{
+                //    m_PM.HandleDoubleJump();
+                //    return;
+                //}
+        }
        
     }
 
@@ -155,12 +154,9 @@ public class PlayerController : MonoBehaviour
             {
                 if (input.isPressed)
                 {
-                    if ((m_PS.IsRightJump || m_PS.IsLeftJump || m_PS.IsJump) && !m_PS.IsDoubleJump)
-                    {
-                       
+                    if (m_PS.IsRightJump || m_PS.IsLeftJump || m_PS.IsJump)
+                    {                       
                         m_PS.IsRightJump = false;
-                        m_PS.IsJump = false;
-                        m_PS.IsDoubleJump = true;
                         m_PM.HandlLeftJump();
                     }
                 }
@@ -242,11 +238,9 @@ public class PlayerController : MonoBehaviour
 
                 if (input.isPressed)
                 {
-                    if ((m_PS.IsRightJump || m_PS.IsLeftJump || m_PS.IsJump) && !m_PS.IsDoubleJump)
+                    if (m_PS.IsRightJump || m_PS.IsLeftJump || m_PS.IsJump)
                     {
                         m_PS.IsLeftJump   = false;
-                        m_PS.IsJump       = false;
-                        m_PS.IsDoubleJump = true;
                         m_PM.HandlRightJump();
                     }
                 }

@@ -40,7 +40,7 @@ public class FadeInOut : MonoBehaviour
 
         if (m_Time >= 1.0f) 
         {
-            SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("Title", LoadSceneMode.Single);
         }
         GetComponent<Image>().color = new Color(GetComponent<Image>().color.r, GetComponent<Image>().color.g, GetComponent<Image>().color.b, m_Alpha);
 
