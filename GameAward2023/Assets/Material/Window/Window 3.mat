@@ -144,7 +144,7 @@ Material:
     - _RainScale: 0
     - _RainSpeed: 0.4
     - _ReceiveShadows: 0
-    - _SmokeNoiseScale: 15
+    - _SmokeNoiseScale: 0
     - _SmokeTimeScale: 0.1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0

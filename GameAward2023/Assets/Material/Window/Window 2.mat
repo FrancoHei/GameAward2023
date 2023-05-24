@@ -166,12 +166,12 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _Offset: {r: 0.58, g: 0.58, b: 0, a: 0}
+    - _Offset: {r: 0.21, g: 0.11, b: 0, a: 0}
     - _OutlineColor: {r: 1, g: 1, b: 0, a: 1}
     - _RainColor: {r: -32.59, g: -1.8, b: 110.98, a: -42.3}
     - _RainPosition: {r: 0, g: 0, b: 0, a: 0}
     - _RainTile: {r: 9.09, g: 1.25, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Tile: {r: 0.36, g: 1, b: 0, a: 0}
+    - _Tile: {r: 0.3, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

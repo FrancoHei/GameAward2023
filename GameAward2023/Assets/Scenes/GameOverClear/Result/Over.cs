@@ -7,6 +7,6 @@ public class Over : MonoBehaviour
 {
     public void LoadScene()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
 }

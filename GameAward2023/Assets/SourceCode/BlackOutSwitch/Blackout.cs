@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Blackout : MonoBehaviour
 {
@@ -15,7 +16,15 @@ public class Blackout : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameObject.Find("GameSystem").GetComponent<GameSystem>().BlackOut)
+        {
+            GetComponent<Light2D>().color = new Color(0.0f, 1.0f, 1.0f, 1.0f);
+        }
+        else
+        if (!GameObject.Find("GameSystem").GetComponent<GameSystem>().BlackOut)
+        {
+            GetComponent<Light2D>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

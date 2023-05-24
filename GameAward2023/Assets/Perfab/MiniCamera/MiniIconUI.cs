@@ -42,6 +42,13 @@ public class MiniIconUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameObject.Find("GameSystem").GetComponent<GameSystem>().GameOver ||
+            GameObject.Find("GameSystem").GetComponent<GameSystem>().GameClear)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+
         if (target)
         {
             float setposX = target.transform.position.x;

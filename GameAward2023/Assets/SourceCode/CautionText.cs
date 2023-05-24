@@ -37,6 +37,11 @@ public class CautionText : MonoBehaviour
             {
                 transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
                 transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().text = "åxâ˙";
+            }else
+           if (m_Owner.GetComponent<State_Enemy>().State == State_Enemy.EnemyAiState.ATTACK)
+            {
+                transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().color = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+                transform.Find("Canvas").Find("Text").GetComponent<TextMeshProUGUI>().text = "çUåÇ";
             }
         }
         else

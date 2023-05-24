@@ -8,9 +8,11 @@ public class PlayerMovement : MonoBehaviour
     private PlayerState m_PS;
     private PlayerParticle m_PP;
     private PlayerController m_PC;
+    private GameSystem m_Gs;
 
     private GameObject m_JumpWall;
 
+    private int m_timer = 0;
     public enum WallJumpControlMethod 
     {
         AUTO,
@@ -37,39 +39,53 @@ public class PlayerMovement : MonoBehaviour
         m_PS   = GetComponent<PlayerState>();
         m_PP   = GetComponent<PlayerParticle>();
         m_PC   = GetComponent<PlayerController>();
+        m_Gs   = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+
     }
 
 
     private void Update()
     {
         //ターゲット前持つ
-        if (m_PS.Target) 
+        if (m_PS.Target)
         {
-            m_PS.Target.transform.position = transform.position + new Vector3(transform.forward.z * 0.5f, transform.up.y * 0.5f, 0.0f);
+            m_PS.Target.transform.position = transform.position + new Vector3(-transform.forward.z * 0.7f, transform.up.y * 0.5f, 0.0f);
             GetComponents<CapsuleCollider2D>()[0].enabled = false;
             GetComponents<CapsuleCollider2D>()[1].enabled = false;
             GetComponents<CapsuleCollider2D>()[2].enabled = true;
         }
-        else 
+        else
         {
-            if (m_PS.IsSlide) 
+            if (m_PS.IsSlide)
             {
                 GetComponents<CapsuleCollider2D>()[0].enabled = false;
                 GetComponents<CapsuleCollider2D>()[1].enabled = true;
                 GetComponents<CapsuleCollider2D>()[2].enabled = false;
-            }else 
+            }
+            else
             {
                 GetComponents<CapsuleCollider2D>()[0].enabled = true;
                 GetComponents<CapsuleCollider2D>()[1].enabled = false;
                 GetComponents<CapsuleCollider2D>()[2].enabled = false;
             }
         }
+
     }
     // Update is called once per frame
     void FixedUpdate()
     {
+     
         //地面チェック
         CheckOnFloor();
+
+        if (m_PS.ReadyThrow || m_Gs.GameOver || m_Gs.GameClear)
+        {
+            m_Rb2D.velocity = Vector2.zero;
+            InitJump();
+            return;
+        }
+
+        if (GameObject.Find("GameSystem").GetComponent<GameSystem>().GameOver) return;
 
         //地面時速度計算
         if (!m_PS.m_ChangeDirectionJump && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump && !m_PS.IsSlideJump && !m_PS.IsRightJump && !m_PS.IsLeftJump)
@@ -198,6 +214,23 @@ public class PlayerMovement : MonoBehaviour
         SlideTimer();
         //回転
         SetRotate();
+
+        //if (m_PS.IsReadyJump)
+        //{
+        //    if (m_PS.TemplateVelocity == Vector2.zero)
+        //        m_PS.TemplateVelocity = m_Rb2D.velocity;
+        //    m_Rb2D.velocity = Vector2.zero;
+        //    m_Gs.CanInput = false;
+        //    m_timer++;
+        //    if (m_timer % 3 == 0)
+        //    {
+        //        m_Rb2D.velocity = m_PS.TemplateVelocity;
+        //        m_Gs.CanInput = true;
+        //        m_PS.IsReadyJump = false;
+        //    }
+        //    return;
+        //}
+
     }
 
     public void HandleJump()
@@ -223,14 +256,16 @@ public class PlayerMovement : MonoBehaviour
             }else
             if(m_PS.OnFloor && !m_PS.IsLeftJump && !m_PS.IsRightJump && !m_PS.IsJump)
             {
-                m_Rb2D.velocity = Vector2.zero;
+                m_Rb2D.velocity  = Vector2.zero;
                 m_Rb2D.AddForce(Vector3.up * m_PS.m_JumpPower);
-               m_PS.FirstJumpVel = new Vector3(m_Rb2D.velocity.x, 0.0f, 0.0f);
+                m_PS.FirstJumpVel = new Vector3(m_Rb2D.velocity.x, 0.0f, 0.0f);
             }
 
         }
 
-        m_PS.IsJump = true;
+        m_PS.IsReadyJump = true;
+        m_PS.IsJump      = true;
+        FixedUpdate();
 
     }
 
@@ -243,8 +278,6 @@ public class PlayerMovement : MonoBehaviour
         if (m_PS.IsSlide) 
         {
             if (!CheckCanSlideJump()) return;
-
-            m_Rb2D.velocity = Vector2.zero;
 
             Instantiate(m_PP.m_SlideJumpVFX, transform.position, Quaternion.identity);
 
@@ -276,7 +309,9 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        m_PS.IsReadyJump = true;
         m_PS.IsRightJump = true;
+        FixedUpdate();
 
     }
 
@@ -291,7 +326,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!CheckCanSlideJump()) return;
 
-            m_Rb2D.velocity = Vector2.zero;
             Instantiate(m_PP.m_SlideJumpVFX, transform.position, Quaternion.identity);
 
             m_Rb2D.AddForce(Vector3.up * m_PS.m_SlideJumpPower);
@@ -322,7 +356,10 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        m_PS.IsReadyJump = true;
         m_PS.IsLeftJump = true;
+        FixedUpdate();
+
     }
 
     public void HandleWallJump()
@@ -335,6 +372,7 @@ public class PlayerMovement : MonoBehaviour
         InitJump();
         m_PS.IsLeftWallJump  = left;
         m_PS.IsRightWallJump = right;
+        m_PS.IsReadyJump     = true;
         m_Rb2D.velocity      = Vector2.zero;
 
         if(m_CanLeftStickAffectWallJump && m_PC.m_IsNewControl) 
@@ -404,6 +442,7 @@ public class PlayerMovement : MonoBehaviour
         if (m_TargetThrowMethod == TARGETTHROWMETHOD.LEFTSTICK)
         {
             Vector2 direction = new Vector2(m_PS.MoveMentInput.x + m_PS.m_TargetThrowPowerOffset.x, Vector2.up.y * (Mathf.Abs(m_PS.MoveMentInput.y ) + m_PS.m_TargetThrowPowerOffset.y));
+            if (!m_PS.Target) return; 
             m_PS.Target.GetComponent<BoxCollider2D>().isTrigger = false;
             m_PS.Target.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             m_PS.Target.GetComponent<Rigidbody2D>().AddForce(direction * m_PS.m_TargetThrowPower);
@@ -521,7 +560,7 @@ public class PlayerMovement : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, m_PS.m_OnFloorDistance, m_PS.m_OnFloorHitLayer);
 
-        if (hit && (hit.transform.gameObject.tag == "Ground" || hit.transform.gameObject.tag == "Wall" || hit.transform.gameObject.tag == "Enemy"))
+        if (hit && (hit.transform.gameObject.tag == "Ground" || hit.transform.gameObject.tag == "Wall" || hit.transform.gameObject.tag == "Enemy" || hit.transform.gameObject.tag == "FallGround"))
         {
             //地面到着瞬間
             if (!m_PS.OnFloor)
@@ -628,25 +667,25 @@ public class PlayerMovement : MonoBehaviour
     {
         if (m_Rb2D.velocity.x > 0 && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump)
         {
-            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward);
+            Quaternion toRotation = Quaternion.LookRotation(-Vector3.forward);
             transform.rotation = toRotation;
         }
 
         if (m_Rb2D.velocity.x < 0 && !m_PS.IsLeftWallJump && !m_PS.IsRightWallJump)
         {
-            Quaternion toRotation = Quaternion.LookRotation(-Vector3.forward);
+            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward);
             transform.rotation = toRotation;
         }
 
         if (m_PS.IsLeftWallJump)
         {
-            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward);
+            Quaternion toRotation = Quaternion.LookRotation(-Vector3.forward);
             transform.rotation = toRotation;
         }
 
         if (m_PS.IsRightWallJump)
         {
-            Quaternion toRotation = Quaternion.LookRotation(-Vector3.forward);
+            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward);
             transform.rotation = toRotation;
         }
     }
@@ -662,6 +701,11 @@ public class PlayerMovement : MonoBehaviour
         if (m_PS.IsSlide)
         {
             m_PS.SlideTimer++;
+            if(m_PS.SlideTimer > m_PS.m_MaxSlideTimer * 2 / 3) 
+            {
+                GetComponent<PlayerAnimator>().SetAnimation("SlideStandUp");
+            }
+
             if (m_PS.SlideTimer > m_PS.m_MaxSlideTimer)
             {
                 InitSlide();

@@ -34,6 +34,14 @@ public class TimerText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameObject.Find("GameSystem").GetComponent<GameSystem>().GameOver ||
+            GameObject.Find("GameSystem").GetComponent<GameSystem>().GameClear) 
+        {
+            if (m_Gui)
+                m_Gui.fontSize = 0;
+
+            return;
+        }
 
         if (m_StartTimer) 
         {

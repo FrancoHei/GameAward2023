@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4334779192315000937}
   - component: {fileID: 5098776606119185306}
   - component: {fileID: 8200532808126019716}
+  - component: {fileID: -1740194463999224798}
   m_Layer: 0
   m_Name: DoubleJumpVFX
   m_TagString: Untagged
@@ -108,5 +109,18 @@ VFXRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2020463985
-  m_SortingLayer: 3
+  m_SortingLayer: 6
   m_SortingOrder: 0
+--- !u!114 &-1740194463999224798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408029757603699686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cf5fe80632c05545933ca1b79add459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Time: 90

@@ -26,12 +26,12 @@ public class newBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(StartPos, transform.position) > m_Distance)
-        {
-            //弾の最大距離による破壊(エフェクト入れるならココ)
+        //if (Vector3.Distance(StartPos, transform.position) > m_Distance)
+        //{
+        //    //弾の最大距離による破壊(エフェクト入れるならココ)
 
-            Destroy(this.gameObject);
-        }
+        //    Destroy(this.gameObject);
+        //}
     }
 
     //追加要素終わり
@@ -46,10 +46,10 @@ public class newBullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float rot = Mathf.Deg2Rad * transform.rotation.eulerAngles.z;
-        m_Rb2D.velocity = new Vector2(
-            Mathf.Cos(rot) * m_Speed,
-            Mathf.Sin(rot) * m_Speed);
+        //float rot = Mathf.Deg2Rad * transform.rotation.eulerAngles.z;
+        //m_Rb2D.velocity = new Vector2(
+        //    Mathf.Cos(rot) * m_Speed,
+        //    Mathf.Sin(rot) * m_Speed);
 
     }
 

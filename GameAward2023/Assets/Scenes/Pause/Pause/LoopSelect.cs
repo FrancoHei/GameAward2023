@@ -4,21 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class LoopSelect : MonoBehaviour
 {
 	//　最初にフォーカスするゲームオブジェクト
 	[SerializeField]
 	private GameObject firstSelect;
-	[SerializeField]
-	private GameObject statusWindow;
+	public  GameObject statusWindow;
 	public void ActivateOrNotActivate(bool flag)
 	{
 		for (var i = 0; i < transform.childCount; i++)
 		{
-			Button button = transform.GetChild(i).GetComponent<Button>();
-			if (button)
-				button.interactable = flag;
+			if(transform.GetChild(i).GetComponent<Button>()) 
+				transform.GetChild(i).GetComponent<Button>().interactable = flag;
 		}
 		if (flag)
 		{
@@ -26,20 +26,22 @@ public class LoopSelect : MonoBehaviour
 		}
 	}
 
-	public void OnContinue()
+	public void GoStageSelect() 
 	{
-		Time.timeScale = 1;
-		statusWindow.SetActive(false);
+		SceneManager.LoadScene("FKD_StageSelect", LoadSceneMode.Single);
 	}
 
-	public void BackStageSelect()
+	public void Continue() 
 	{
-
+		statusWindow.SetActive(!statusWindow.activeSelf);
+		DepthOfField dof;
+		GameObject.Find("Volumn").GetComponent<Volume>().profile.TryGet(out dof);
+		dof.active = false;
+		GameObject.Find("GameSystem").GetComponent<GameSystem>().CanInput = true;
 	}
 
-	public void BackTitle()
+	public void GoTitle() 
 	{
 		SceneManager.LoadScene("Title", LoadSceneMode.Single);
 	}
-
 }

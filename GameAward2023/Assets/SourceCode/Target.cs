@@ -37,7 +37,7 @@ public class Target : MonoBehaviour
             CheckOnFloor();
         }
 
-        if (!m_CanCatch && m_Rb2D.velocity.y <= 0.0f)
+        if (!m_CanCatch /*&& m_Rb2D.velocity.y <= 0.0f*/)
         {
             m_CanCatch = true;
         }

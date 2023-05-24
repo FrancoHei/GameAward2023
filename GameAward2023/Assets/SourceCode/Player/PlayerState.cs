@@ -164,7 +164,13 @@ public class PlayerState : MonoBehaviour
         set { m_LeftJumpVel = value; }
         get { return m_LeftJumpVel; }
     }
+    private bool m_IsReadyJump;
 
+    public bool IsReadyJump
+    {
+        set { m_IsReadyJump = value; }
+        get { return m_IsReadyJump; }
+    }
     //-----------------------------------
     //-----------------------------------
     //-----------------------------------
@@ -304,4 +310,20 @@ public class PlayerState : MonoBehaviour
     [Header("ワイヤースピード")]
     public float m_WireSpeed;
 
+
+    private Vector2 templateVelocity;
+
+    public Vector2 TemplateVelocity 
+    {
+        set { templateVelocity = value; }
+        get { return templateVelocity; }
+    }
+
+    private bool m_ReadyThrow = false;
+
+    public bool ReadyThrow
+    {
+        set { m_ReadyThrow = value; }
+        get { return m_ReadyThrow; }
+    }
 }

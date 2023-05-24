@@ -1,0 +1,97 @@
+怪盗.png
+size:1984,411
+filter:Linear,Linear
+pma:true
+コート　Short
+bounds:2,192,217,446
+rotate:90
+コート　奥
+bounds:450,209,200,446
+rotate:90
+コート　奥　えり
+bounds:898,209,200,446
+rotate:90
+コート　手前
+bounds:1346,209,200,446
+rotate:90
+コート　手前　えり
+bounds:450,7,200,446
+rotate:90
+コート　裏　えり
+bounds:898,7,200,446
+rotate:90
+ベルト
+bounds:417,74,116,30
+rotate:90
+ポニテ
+bounds:1346,162,45,302
+rotate:90
+前髪　奥
+bounds:1346,2,48,185
+rotate:90
+前髪　手前
+bounds:1916,218,60,191
+前髪　真ん中
+bounds:1868,71,47,123
+口　Close
+bounds:1868,3,41,14
+口　Open
+bounds:1785,185,26,9
+奥手　グー
+bounds:417,36,26,36
+奥手　パー
+bounds:1939,92,26,47
+奥腕　1
+bounds:1813,63,53,131
+奥腕　2
+bounds:1705,5,54,122
+rotate:90
+奥足　1
+bounds:2,15,73,244
+rotate:90
+奥足　2
+bounds:1346,52,108,232
+rotate:90
+奥足　ベルト
+bounds:1917,169,61,26
+手前手　グー
+bounds:1533,4,35,46
+手前手　パー
+bounds:1829,3,37,58
+手前腕　1
+bounds:1650,162,45,133
+rotate:90
+手前腕　2
+bounds:1580,2,57,123
+rotate:90
+手前足　1
+bounds:2,90,100,259
+rotate:90
+手前足　2
+bounds:1580,61,99,231
+rotate:90
+手前足　ベルト
+bounds:1917,141,54,26
+目　Close
+bounds:1916,197,66,19
+目　まつげ
+bounds:248,28,80,25
+目　白
+bounds:330,33,71,20
+目　瞳孔
+bounds:1917,81,58,20
+rotate:90
+眉毛　しかめる
+bounds:285,6,46,20
+眉毛　ノーマル
+bounds:333,14,53,17
+耳
+bounds:248,2,24,35
+rotate:90
+胴体wake
+bounds:1794,196,120,213
+頭
+bounds:263,55,135,152
+rotate:90
+首
+bounds:1868,19,41,50

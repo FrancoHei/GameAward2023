@@ -9,7 +9,7 @@ public class TitleEvent : MonoBehaviour
     
     public void TriggerInput()
     {
-        SceneManager.LoadScene(SceneName);
+        SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
 
     }
 }

@@ -57,10 +57,6 @@ public class TitleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
-
-
         m_SelectHierarchy = 0;
 
         for (int i = 0; i < m_TitleHierarchy.Count; i++)
@@ -125,11 +121,11 @@ public class TitleController : MonoBehaviour
             NowInput.Left = false;
             NowInput.Right = false;
 
-            if (ConnectPAD && PAD.dpad.up.isPressed || Input.GetKey(KeyCode.UpArrow))
+            if (ConnectPAD && PAD.dpad.up.isPressed || Input.GetKey(KeyCode.UpArrow) || (ConnectPAD && PAD.leftStick.y.ReadValue() > 0.0f))
             {
                 NowInput.Up = true;
             }
-            if (ConnectPAD && PAD.dpad.down.isPressed || Input.GetKey(KeyCode.DownArrow))
+            if (ConnectPAD && PAD.dpad.down.isPressed || Input.GetKey(KeyCode.DownArrow) || (ConnectPAD && PAD.leftStick.y.ReadValue() < 0.0f))
             {
                 NowInput.Down = true;
             }
@@ -145,11 +141,11 @@ public class TitleController : MonoBehaviour
             }
 
 
-            if (ConnectPAD && PAD.circleButton.isPressed || Input.GetKey(KeyCode.Return))
+            if (ConnectPAD && PAD.crossButton.isPressed || Input.GetKey(KeyCode.Return))
             {
                 NowInput.Enter = true;
             }
-            if (ConnectPAD && PAD.crossButton.isPressed || Input.GetKey(KeyCode.Escape))
+            if (ConnectPAD && PAD.circleButton.isPressed || Input.GetKey(KeyCode.Escape))
             {
                 NowInput.Back = true;
             }
@@ -328,6 +324,7 @@ public class TitleController : MonoBehaviour
 
         if (TriggerInput.Enter)
         {
+
             if (m_SelectHierarchy < m_TitleHierarchy.Count - 1)
             {
                 foreach (var item in m_TitleHierarchy[m_SelectHierarchy].SelectableObjectList)
@@ -364,6 +361,10 @@ public class TitleController : MonoBehaviour
                         if (item.GetComponent<TitleEvent>())
                         {
                             item.GetComponent<TitleEvent>().TriggerInput();
+                        }
+                        if (item.GetComponent<Quit>()) 
+                        {
+                            item.GetComponent<Quit>().AppQuit();
                         }
                         break;
                     }

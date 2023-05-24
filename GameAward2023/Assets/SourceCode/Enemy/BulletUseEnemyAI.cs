@@ -22,6 +22,8 @@ public class BulletUseEnemyAI : MonoBehaviour
 
     private Vector3 LightposOffset;
 
+    public GameObject m_MovePoint;
+
     [System.Serializable] public struct TargetStruct
     {
         [Tooltip("移動先座標(ゲーム開始時からの相対座標)")] public Vector2 MovePosition;
@@ -47,7 +49,7 @@ public class BulletUseEnemyAI : MonoBehaviour
         m_GizmosPosition = transform.position;
         m_StateNumber = 0;
         m_MoveNumber = 0;
-        LightposOffset = LightObject.transform.position - transform.position;
+        ///LightposOffset = LightObject.transform.position - transform.position;
     }
 
     // Update is called once per frame
@@ -70,14 +72,15 @@ public class BulletUseEnemyAI : MonoBehaviour
             default:
                 break;
         }
+        rb2D.velocity = new Vector2(1, 0);
 
-        LightObject.transform.position =
-             (LightposOffset + transform.position) * Mathf.Cos(Mathf.Deg2Rad * transform.rotation.z) 
-           + (LightposOffset + transform.position) * Mathf.Sin(Mathf.Deg2Rad * transform.rotation.z);
+        //LightObject.transform.position =
+        //     (LightposOffset + transform.position) * Mathf.Cos(Mathf.Deg2Rad * transform.rotation.z)
+        //   + (LightposOffset + transform.position) * Mathf.Sin(Mathf.Deg2Rad * transform.rotation.z);
 
-        Vector3 rotBuff = LightObject.transform.eulerAngles;
-        rotBuff.z = 90 - transform.eulerAngles.z;
-        LightObject.transform.eulerAngles = rotBuff;
+        //Vector3 rotBuff = LightObject.transform.eulerAngles;
+        //rotBuff.z = 90 - transform.eulerAngles.z;
+        //LightObject.transform.eulerAngles = rotBuff;
 
 
     }
@@ -88,13 +91,12 @@ public class BulletUseEnemyAI : MonoBehaviour
 
     void NormalState() 
     {
-        LightObject.GetComponent<Light2D>().intensity = 0;
-        GetComponent<SpriteRenderer>().color = Color.white;
+        //LightObject.GetComponent<Light2D>().intensity = 0;
     }
 
     void VigilanceState() 
     {
-        LightObject.GetComponent<Light2D>().intensity = 1;
+        //LightObject.GetComponent<Light2D>().intensity = 1;
         GetComponent<SpriteRenderer>().color = Color.cyan;
 
         if (m_MovePosition.Count > 0)
@@ -154,7 +156,7 @@ public class BulletUseEnemyAI : MonoBehaviour
 
     void Discover() 
     {
-        LightObject.GetComponent<Light2D>().intensity = 0;
+        //LightObject.GetComponent<Light2D>().intensity = 0;
         GetComponent<SpriteRenderer>().color = Color.red;
 
         if(m_BulletShootTimer % m_BulletShootSpace == 0) 
@@ -194,38 +196,38 @@ public class BulletUseEnemyAI : MonoBehaviour
     //    }
 
 
-        LightObject.transform.position =
-             (LightposOffset + transform.position) * Mathf.Cos(Mathf.Deg2Rad * transform.rotation.z)
-           + (LightposOffset + transform.position) * Mathf.Sin(Mathf.Deg2Rad * transform.rotation.z);
+        //LightObject.transform.position =
+        //     (LightposOffset + transform.position) * Mathf.Cos(Mathf.Deg2Rad * transform.rotation.z)
+        //   + (LightposOffset + transform.position) * Mathf.Sin(Mathf.Deg2Rad * transform.rotation.z);
 
-        Vector3 rotBuff = LightObject.transform.eulerAngles;
-        rotBuff.z = 90 - transform.eulerAngles.z;
-        LightObject.transform.eulerAngles = rotBuff;
+        //Vector3 rotBuff = LightObject.transform.eulerAngles;
+        //rotBuff.z = 90 - transform.eulerAngles.z;
+        //LightObject.transform.eulerAngles = rotBuff;
 
 
-        foreach (TargetStruct target in m_MovePosition)
-        {
-            Vector3 pos = target.MovePosition;
+        //foreach (TargetStruct target in m_MovePosition)
+        //{
+        //    Vector3 pos = target.MovePosition;
 
-            pos += m_GizmosPosition;
+        //    pos += m_GizmosPosition;
 
-            float rot = Mathf.Deg2Rad * target.RotationZ;
+        //    float rot = Mathf.Deg2Rad * target.RotationZ;
 
-            Gizmos.color = Color.red;
-            Vector3 Size = Vector3.right * 0.2f + Vector3.up * 0.2f;
-            Gizmos.DrawWireCube(pos, Size);
+        //    Gizmos.color = Color.red;
+        //    Vector3 Size = Vector3.right * 0.2f + Vector3.up * 0.2f;
+        //    Gizmos.DrawWireCube(pos, Size);
 
-            Gizmos.color = Color.yellow;
-            Vector3 Direction = pos + Vector3.right * Mathf.Cos(rot) + Vector3.up * Mathf.Sin(rot);
-            Gizmos.DrawLine(pos, Direction);
+        //    Gizmos.color = Color.yellow;
+        //    Vector3 Direction = pos + Vector3.right * Mathf.Cos(rot) + Vector3.up * Mathf.Sin(rot);
+        //    Gizmos.DrawLine(pos, Direction);
 
-            Vector3 Angle = Direction + Vector3.right * 0.2f * Mathf.Cos(60 + rot) + Vector3.up * 0.2f * Mathf.Sin(60 + rot);
-            Gizmos.DrawLine(Direction, Angle);
+        //    Vector3 Angle = Direction + Vector3.right * 0.2f * Mathf.Cos(60 + rot) + Vector3.up * 0.2f * Mathf.Sin(60 + rot);
+        //    Gizmos.DrawLine(Direction, Angle);
 
-            Angle = Direction + Vector3.right * 0.2f * Mathf.Cos(-60 + rot) + Vector3.up * 0.2f * Mathf.Sin(-60 + rot);
-            Gizmos.DrawLine(Direction, Angle);
+        //    Angle = Direction + Vector3.right * 0.2f * Mathf.Cos(-60 + rot) + Vector3.up * 0.2f * Mathf.Sin(-60 + rot);
+        //    Gizmos.DrawLine(Direction, Angle);
 
-        }
+        //}
 
 
 
